@@ -1,0 +1,28 @@
+.card-grid{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+.cardOne{
+    border: 0;
+    background-color: #fff1e6;
+    width: 95%;
+    height: 125%;
+}
+.cardTwo{
+    border: 0;
+    background-color: #b8eeec;
+    width: 95%;
+    height: 125%;
+}
+.cardThree{
+    border: 0;
+    background-color: #ededb8;
+    width: 95%;
+    height: 125%;
+}
+.cardFour{
+    border: 0;
+    background-color: #C3D9FF;
+    width: 95%;
+    height: 125%;
+}
