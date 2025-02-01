@@ -26,13 +26,19 @@
     width: 95%;
     height: 125%;
 }
-.bannerImage{
-    width: 80%;
-    height: 400px;
+.sliderContainer{
+    background-color: #f0f7fc;
 }
-.carousel-inner{
-    display: flex;
+.bannerTitle{
+    font-size: 50px;
 }
+.bannerDesc{
+    font-size: 20px;
+}
+/* .slick-prev, .slich-next{
+    z-index: 10;
+    display: block !important;
+} */
 .rounded-circle{
     width: 50px;
     height: 50px;

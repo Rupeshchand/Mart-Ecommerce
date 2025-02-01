@@ -5,9 +5,9 @@ import { faBagShopping, faCartShopping, faUser } from '@fortawesome/free-solid-s
 const Header = () => {
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-white p-3 shadow ">
+            <nav className="navbar navbar-expand-lg bg-white p-4 shadow ">
                 <div className="container-fluid ms-4">
-                    <Link className="navbar-brand" to="/"><FontAwesomeIcon icon={faBagShopping} /> 
+                    <Link className="navbar-brand fs-2" to="/"><FontAwesomeIcon icon={faBagShopping} /> 
                     Mart</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>

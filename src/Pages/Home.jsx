@@ -1,4 +1,5 @@
 import React from 'react'
+import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,32 +9,37 @@ import { AiOutlineHeart } from 'react-icons/ai';
 import { discoutProducts } from '../Products';
 import { SliderData } from '../Products';
 const Home = () => {
+    let settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+    };
     return (
         <>
-            <div id="carouselExample" className="carousel slide">
-                <div className="carousel-inner">
+            <div className='sliderContainer'>
+
+                <Slider {...settings}>
                     {
                         SliderData.map((banner) => (
-                            <>
-                                <div className="carousel-item active">
-                                    <h1>{banner.title}</h1>
-                                    <p>{banner.desc}</p>
+
+                            <div className='slide border border-0 m-5' key={banner.id}>
+                                <div className="row align-items-center m-5">
+                                    <div className="col">
+                                        <h1 className='bannerTitle'>{banner.title}</h1>
+                                        <p className='bannerDesc'>{banner.desc}</p>
+                                        <button className='border border-0 p-1'>Visit Collections</button>
+                                    </div>
+                                    <div className="col ms-5">
+                                        <img src={banner.cover} alt={banner.title} />
+                                    </div>
                                 </div>
-                                <div className="carousel-item">
-                                    <img src={banner.cover} className="d-block w-100 bannerImage" alt={banner.title} />
-                                </div>
-                            </>
+                            </div>
                         ))
                     }
-                </div>
-                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Previous</span>
-                </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Next</span>
-                </button>
+                </Slider>
             </div>
             <DummyCards />
             <DiscountedProdcts />
