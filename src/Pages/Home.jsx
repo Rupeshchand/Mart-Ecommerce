@@ -92,37 +92,39 @@ export const DiscountedProdcts = () => {
 
     return (
         <>
-            <h2 className='text-center'>Big Discount</h2>
-            <div className="row d-flex justify-content-center mt-5 mb-5 gap-0" >
-                {
-                    discoutProducts && discoutProducts.length > 0 && discoutProducts.map((product) => (
-                        <div className="col-md-3 m-2">
-                            <div className="card p-4 border border-0 bg-white shadow product-cards">
-                                <div className='d-flex justify-content-between'>
-                                    <p className='border border-0 rounded-pill p-1'>{product.discount}% Off</p>
-                                    <AiOutlineHeart size={20} />
-                                </div>
-                                <div className="mx-auto">
-                                    <img className='img-fluid product-img' src={product.imgUrl} alt={product.productName} />
-                                </div>
-                                <div>
-                                    <p className="fs-5 fw-bold mt-3">{product.productName}</p>
-                                    <div className='text-warning ratings'>
-                                        <FontAwesomeIcon className='g-col-6' icon={faStar} />
-                                        <FontAwesomeIcon icon={faStar} />
-                                        <FontAwesomeIcon icon={faStar} />
-                                        <FontAwesomeIcon icon={faStar} />
-                                        <FontAwesomeIcon icon={faStar} />
+            <div className="bigDiscContainer">
+                <h2 className='text-center discTitle'>Big Discount</h2>
+                <div className="row d-flex justify-content-center mt-5 mb-5 gap-0" >
+                    {
+                        discoutProducts && discoutProducts.length > 0 && discoutProducts.map((product) => (
+                            <div className="col-md-3 m-2">
+                                <div className="card p-4 border border-0 bg-white shadow product-cards">
+                                    <div className='d-flex justify-content-between'>
+                                        <p className='border border-0 rounded-pill p-1'>{product.discount}% Off</p>
+                                        <AiOutlineHeart size={20} />
                                     </div>
-                                    <div className='d-flex justify-content-between mt-4 lh-lg'>
-                                        <p className='fs-2  fw-semibold'>$ {product.price}</p>
-                                        <button className='btn border rounded-circle'>+</button>
+                                    <div className="mx-auto">
+                                        <img className='img-fluid product-img' src={product.imgUrl} alt={product.productName} />
+                                    </div>
+                                    <div>
+                                        <p className="fs-5 fw-bold mt-3">{product.productName}</p>
+                                        <div className='text-warning ratings'>
+                                            <FontAwesomeIcon className='g-col-6' icon={faStar} />
+                                            <FontAwesomeIcon icon={faStar} />
+                                            <FontAwesomeIcon icon={faStar} />
+                                            <FontAwesomeIcon icon={faStar} />
+                                            <FontAwesomeIcon icon={faStar} />
+                                        </div>
+                                        <div className='d-flex justify-content-between mt-4 lh-lg'>
+                                            <p className='fs-2  fw-semibold'>$ {product.price}</p>
+                                            <button className='btn border rounded-circle'>+</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    ))
-                }
+                        ))
+                    }
+                </div>
             </div>
         </>
     )

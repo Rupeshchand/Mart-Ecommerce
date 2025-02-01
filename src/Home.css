@@ -69,3 +69,11 @@
     display: flex;
     gap: 10px;
 }
+.bigDiscContainer{
+    background-color: #f0f7fc;
+    margin-top: 8%;   
+    padding: 70px;
+}
+.discTitle{
+    font-size: 40px
+}
