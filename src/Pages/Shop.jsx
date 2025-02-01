@@ -11,15 +11,15 @@ const Shop = () => {
   const [filteredData, updateFilteredData] = useState(products)
   const [searchText, updateSearchText] = useState('')
   const [message, updateMessage] = useState('')
-  const filterProducts = (category, searchText='') => {
+  const filterProducts = (category, searchText = '') => {
     updateDropDown(category)
-    if(!category && !searchText){
+    if (!category && !searchText) {
       updateFilteredData(products)
       return
     }
     let res = products.filter((product) => {
       const productMatch = product.category.toLowerCase() === category.toLowerCase()
-      const searchMatch = searchText ? product.category.toLowerCase().includes(searchText.toLowerCase()):false
+      const searchMatch = searchText ? product.category.toLowerCase().includes(searchText.toLowerCase()) : false
       return productMatch || searchMatch
     })
     updateFilteredData(res)
@@ -84,28 +84,30 @@ const Shop = () => {
           {
             filteredData && filteredData.length > 0 && filteredData.map((product) => (
               <div className="col-md-3 m-2" key={product.id}>
-                <div className="card p-4 border border-0 bg-white shadow product-cards">
-                  <div>
-                    <AiOutlineHeart className="whishlist" size={20} />
-                  </div>
-                  <div className="mx-auto">
-                    <img className='img-fluid product-img' src={product.imgUrl} alt={product.productName} />
-                  </div>
-                  <div>
-                    <p className="fs-5 fw-bold mt-3">{product.productName}</p>
-                    <div className='text-warning ratings'>
-                      <FontAwesomeIcon className='g-col-6' icon={faStar} />
-                      <FontAwesomeIcon icon={faStar} />
-                      <FontAwesomeIcon icon={faStar} />
-                      <FontAwesomeIcon icon={faStar} />
-                      <FontAwesomeIcon icon={faStar} />
+                <Link className='text-decoration-none' to={`/product-details/${product.id}`}>
+                  <div className="card p-4 border border-0 bg-white shadow product-cards">
+                    <div>
+                      <AiOutlineHeart className="whishlist" size={20} />
                     </div>
-                    <div className='d-flex justify-content-between mt-4 lh-lg'>
-                      <p className='fs-2  fw-semibold'>$ {product.price}</p>
-                      <button className='btn border rounded-circle'>+</button>
+                    <div className="mx-auto">
+                      <img className='img-fluid product-img' src={product.imgUrl} alt={product.productName} />
+                    </div>
+                    <div>
+                      <p className="fs-5 fw-bold mt-3">{product.productName}</p>
+                      <div className='text-warning ratings'>
+                        <FontAwesomeIcon className='g-col-6' icon={faStar} />
+                        <FontAwesomeIcon icon={faStar} />
+                        <FontAwesomeIcon icon={faStar} />
+                        <FontAwesomeIcon icon={faStar} />
+                        <FontAwesomeIcon icon={faStar} />
+                      </div>
+                      <div className='d-flex justify-content-between mt-4 lh-lg'>
+                        <p className='fs-2  fw-semibold'>$ {product.price}</p>
+                        <button className='btn border rounded-circle'>+</button>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               </div>
             ))
           }

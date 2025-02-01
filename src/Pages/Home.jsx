@@ -8,6 +8,7 @@ import '../Home.css'
 import { AiOutlineHeart } from 'react-icons/ai';
 import { discoutProducts } from '../Products';
 import { SliderData } from '../Products';
+import { Link } from 'react-router-dom';
 const Home = () => {
     let settings = {
         dots: false,
@@ -98,29 +99,31 @@ export const DiscountedProdcts = () => {
                     {
                         discoutProducts && discoutProducts.length > 0 && discoutProducts.map((product) => (
                             <div className="col-md-3 m-2" key={product.id}>
-                                <div className="card p-4 border border-0 bg-white shadow product-cards">
-                                    <div className='d-flex justify-content-between'>
-                                        <p className='border border-0 rounded-pill p-1 discount'>{product.discount}% Off</p>
-                                        <AiOutlineHeart size={20} />
-                                    </div>
-                                    <div className="mx-auto">
-                                        <img className='img-fluid product-img' src={product.imgUrl} alt={product.productName} />
-                                    </div>
-                                    <div>
-                                        <p className="fs-5 fw-bold mt-3">{product.productName}</p>
-                                        <div className='text-warning ratings'>
-                                            <FontAwesomeIcon className='g-col-6' icon={faStar} />
-                                            <FontAwesomeIcon icon={faStar} />
-                                            <FontAwesomeIcon icon={faStar} />
-                                            <FontAwesomeIcon icon={faStar} />
-                                            <FontAwesomeIcon icon={faStar} />
+                                <Link className='text-decoration-none' to={`/product-details/${product.id}`} >
+                                    <div className="card p-4 border border-0 bg-white shadow product-cards">
+                                        <div className='d-flex justify-content-between'>
+                                            <p className='border border-0 rounded-pill p-1 discount'>{product.discount}% Off</p>
+                                            <AiOutlineHeart size={20} />
                                         </div>
-                                        <div className='d-flex justify-content-between mt-4 lh-lg'>
-                                            <p className='fs-2  fw-semibold'>$ {product.price}</p>
-                                            <button className='btn border rounded-circle'>+</button>
+                                        <div className="mx-auto">
+                                            <img className='img-fluid product-img' src={product.imgUrl} alt={product.productName} />
+                                        </div>
+                                        <div>
+                                            <p className="fs-5 fw-bold mt-3">{product.productName}</p>
+                                            <div className='text-warning ratings'>
+                                                <FontAwesomeIcon className='g-col-6' icon={faStar} />
+                                                <FontAwesomeIcon icon={faStar} />
+                                                <FontAwesomeIcon icon={faStar} />
+                                                <FontAwesomeIcon icon={faStar} />
+                                                <FontAwesomeIcon icon={faStar} />
+                                            </div>
+                                            <div className='d-flex justify-content-between mt-4 lh-lg'>
+                                                <p className='fs-2  fw-semibold'>$ {product.price}</p>
+                                                <button className='btn border rounded-circle'>+</button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </Link>
                             </div>
                         ))
                     }
