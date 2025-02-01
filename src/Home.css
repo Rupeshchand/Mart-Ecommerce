@@ -26,3 +26,40 @@
     width: 95%;
     height: 125%;
 }
+.bannerImage{
+    width: 80%;
+    height: 400px;
+}
+.carousel-inner{
+    display: flex;
+}
+.rounded-circle{
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    font-size: 30px;
+}
+.rounded-circle:hover{
+    background-color: #003153;
+    color: white;
+}
+.rounded-pill{
+    background-color: #003153;
+    color: white;
+    width: 20%;
+    height: 30px;
+    font-size: 13px;
+    text-align: center;
+}
+.product-img{
+    width: 300px;
+    height: 200px;
+}
+.product-cards{
+    width: 350px;
+    height: 500px;
+}
+.ratings{
+    display: flex;
+    gap: 10px;
+}
