@@ -97,10 +97,10 @@ export const DiscountedProdcts = () => {
                 <div className="row d-flex justify-content-center mt-5 mb-5 gap-0" >
                     {
                         discoutProducts && discoutProducts.length > 0 && discoutProducts.map((product) => (
-                            <div className="col-md-3 m-2">
+                            <div className="col-md-3 m-2" key={product.id}>
                                 <div className="card p-4 border border-0 bg-white shadow product-cards">
                                     <div className='d-flex justify-content-between'>
-                                        <p className='border border-0 rounded-pill p-1'>{product.discount}% Off</p>
+                                        <p className='border border-0 rounded-pill p-1 discount'>{product.discount}% Off</p>
                                         <AiOutlineHeart size={20} />
                                     </div>
                                     <div className="mx-auto">

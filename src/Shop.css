@@ -1,0 +1,31 @@
+.searchBtn{
+    position: absolute !important; 
+    left:89%
+}
+.filterCat, .filterCat:hover,.dropdown-item:hover{
+    background-color: #003153;
+    color: white;
+}
+.vertical-line{
+    position: absolute;
+    top: 7px;
+    left: 140px;
+    border-left: 1px solid;
+    height:25px;
+    margin: 0 auto;
+}
+.noProductFound{
+   font-size: 50px;
+}
+.product-cards{
+    position: relative;
+}
+.whishlist{
+    position: absolute;
+    opacity: 0;
+    left: 90%;
+    float: right;
+}
+.product-cards:hover .whishlist{
+    opacity: 1;
+}
