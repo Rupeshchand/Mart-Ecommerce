@@ -2,10 +2,15 @@ import { faClose } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import '../Cart.css'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { remove } from '../Redux/CartSlice'
 const Cart = () => {
     const cartData = useSelector(state => state.cart)
     console.log(cartData)
+    const dispatch = useDispatch()
+    const handleRemove = (product)=>{
+        dispatch(remove(product))
+    }
     return (
         <>
             {/* <div className="container mt-5 mb-5">
@@ -47,7 +52,9 @@ const Cart = () => {
                                             </div>
                                         </div>
                                         <div className="col">
-                                            <button className='btn'><FontAwesomeIcon icon={faClose} /></button>
+                                            <button className='btn' onClick={()=>{
+                                                handleRemove(product)
+                                            }}><FontAwesomeIcon icon={faClose}/></button>
                                             <div>
                                                 <button className='btn border'>+</button>
                                                 <button className='btn border'>-</button>

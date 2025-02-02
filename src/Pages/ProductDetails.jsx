@@ -11,9 +11,10 @@ import { useDispatch } from 'react-redux';
 import { add } from '../Redux/CartSlice';
 const ProductDetails = () => {
     const [product, setProduct] = useState({})
-    const [desc, updateDesc] = useState('')
+    // const [desc, updateDesc] = useState('')
+    const [reviews, updateReviews] = useState('')
     const [relatedProducts, updateRelatedProducts] = useState([])
-    const [added,setAdded] = useState(false)
+    const [added, setAdded] = useState(false)
     const { id } = useParams()
     const dispatch = useDispatch()
 
@@ -25,7 +26,7 @@ const ProductDetails = () => {
         setProduct(foundProduct)
         updateRelatedProducts(relatedProduct)
     }, [id, products, product.category])
-    const handleAdd = (product)=>{
+    const handleAdd = (product) => {
         dispatch(add(product))
         setAdded(true)
     }
@@ -37,7 +38,7 @@ const ProductDetails = () => {
             <div className="container">
                 <div className="row d-flex align-items-center">
                     <div className="col">
-                        <img src={product.imgUrl} alt={product.productName} width={500}/>
+                        <img src={product.imgUrl} alt={product.productName} width={500} />
                     </div>
                     <div className="col">
                         <h1>{product.productName}</h1>
@@ -62,10 +63,18 @@ const ProductDetails = () => {
                         <div>
                             <p>{product.shortDesc}</p>
                         </div>
-                        <button className='btn pdBtn' onClick={()=>{handleAdd(product)}}>{added ? 'Added' : 'Add to cart'}</button>
+                        <button className='btn pdBtn' onClick={() => { handleAdd(product) }}>{added ? 'Added' : 'Add to cart'}</button>
                     </div>
                 </div>
             </div >
+            <nav aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                    <li className="breadcrumb-item"><Link to="#">Description</Link></li>
+                            {/* <p>{product.description}</p> */}
+                    <li className="breadcrumb-item active" aria-current="page">Reviews (2)</li>
+                </ol>
+            </nav>
+            {/* <p>{product.description}</p> */}
             <div className="container">
                 <div className="row d-flex justify-content-center mt-5 mb-5 gap-4" >
                     <h2>You May Also Like</h2>
@@ -78,7 +87,7 @@ const ProductDetails = () => {
                                             <AiOutlineHeart className="whishlist" size={20} />
                                         </div>
                                         <div className="mx-auto">
-                                            <img className='img-fluid product-img' src={product.imgUrl} alt={product.productName}/>
+                                            <img className='img-fluid product-img' src={product.imgUrl} alt={product.productName} />
                                         </div>
                                         <div>
                                             <p className="fs-5 fw-bold mt-3">{product.productName}</p>
@@ -91,7 +100,7 @@ const ProductDetails = () => {
                                             </div>
                                             <div className='d-flex justify-content-between mt-4 lh-lg'>
                                                 <p className='fs-2  fw-semibold'>$ {product.price}</p>
-                                                <button className='btn border rounded-circle' onClick={()=>{handleAdd(product)}}>+</button>
+                                                <button className='btn border rounded-circle' onClick={() => { handleAdd(product) }}>+</button>
                                             </div>
                                         </div>
                                     </div>

@@ -6,6 +6,8 @@ import '../Shop.css'
 import { products } from '../Products'
 import { AiOutlineHeart } from 'react-icons/ai';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch } from 'react-redux'
+import { add } from '../Redux/CartSlice'
 const Shop = () => {
   const [dropdownName, updateDropDown] = useState('Filter By Category')
   const [filteredData, updateFilteredData] = useState(products)
@@ -33,6 +35,10 @@ const Shop = () => {
       updateMessage("")
     }
   }, [filteredData])
+  const dispatch = useDispatch()
+  const handleAdd = (product)=>{
+    dispatch(add(product))
+  }
   return (
     <>
       <div className="container-fluid bg-secondary w-100 p-5">
@@ -84,8 +90,8 @@ const Shop = () => {
           {
             filteredData && filteredData.length > 0 && filteredData.map((product) => (
               <div className="col-md-3 m-2" key={product.id}>
-                <Link className='text-decoration-none' to={`/product-details/${product.id}`}>
-                  <div className="card p-4 border border-0 bg-white shadow product-cards">
+                <div className="card p-4 border border-0 bg-white shadow product-cards">
+                  <Link className='text-decoration-none' to={`/product-details/${product.id}`}>
                     <div>
                       <AiOutlineHeart className="whishlist" size={20} />
                     </div>
@@ -94,25 +100,25 @@ const Shop = () => {
                     </div>
                     <div>
                       <p className="fs-5 fw-bold mt-3">{product.productName}</p>
-                      <div className='text-warning ratings'>
-                        <FontAwesomeIcon className='g-col-6' icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                      </div>
-                      <div className='d-flex justify-content-between mt-4 lh-lg'>
-                        <p className='fs-2  fw-semibold'>$ {product.price}</p>
-                        <button className='btn border rounded-circle'>+</button>
-                      </div>
                     </div>
+                  </Link>
+                  <div className='text-warning ratings'>
+                    <FontAwesomeIcon className='g-col-6' icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
                   </div>
-                </Link>
+                  <div className='d-flex justify-content-between mt-4 lh-lg'>
+                    <p className='fs-2  fw-semibold'>$ {product.price}</p>
+                    <button className='btn border rounded-circle' onClick={()=>{handleAdd(product)}}>+</button>
+                  </div>
+                </div>
               </div>
             ))
           }
         </div>
-      </div>
+      </div >
     </>
   )
 }
