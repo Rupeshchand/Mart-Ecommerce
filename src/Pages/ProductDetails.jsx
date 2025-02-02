@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { AiOutlineHeart } from 'react-icons/ai';
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { products } from '../Products'
@@ -8,12 +10,17 @@ import '../ProductDetails.css'
 const ProductDetails = () => {
     const [product, setProduct] = useState({})
     const [desc, updateDesc] = useState('')
+    const [relatedProducts, updateRelatedProducts] = useState([])
     const { id } = useParams()
+
     useEffect(() => {
         const foundProduct = products.find((p) => p.id === id)
+        const relatedProduct = products.filter((relatedPrdct) => {
+            return relatedPrdct.category.includes(product.category)
+        })
         setProduct(foundProduct)
-    }, [id, products])
-    console.log(product)
+        updateRelatedProducts(relatedProduct)
+    }, [id, products, product.category])
     return (
         <>
             <div className="container-fluid bg-secondary w-100 p-5">
@@ -22,7 +29,7 @@ const ProductDetails = () => {
             <div className="container">
                 <div className="row d-flex align-items-center">
                     <div className="col">
-                        <img src={product.imgUrl} alt={product.productName} />
+                        <img src={product.imgUrl} alt={product.productName} width={500}/>
                     </div>
                     <div className="col">
                         <h1>{product.productName}</h1>
@@ -52,25 +59,38 @@ const ProductDetails = () => {
                 </div>
             </div >
             <div className="container">
-                <div className="row">
-                    <div className="col">
-                        <p onClick={() => {
-                            updateDesc(product.description)
-                        }}>Description</p>
-                        <p>{desc}</p>
-                    </div>
-                    <div className="col">
-                        <p>Reviews (2)</p>
-                        {
-                            product.reviews && product.reviews.map((review) => (
-                                <>
-                                    <p>Jhon Doe</p>
-                                    <p className='text-warning'>{review.rating}(rating)</p>
-                                    <p>{review.text}</p>
-                                </>
-                            ))
-                        }
-                    </div>
+                <div className="row d-flex justify-content-center mt-5 mb-5 gap-4" >
+                    <h2>You May Also Like</h2>
+                    {
+                        relatedProducts && relatedProducts.length > 0 && relatedProducts.map((product) => (
+                            <div className="col-md-3 m-2" key={product.id}>
+                                <Link className='text-decoration-none' to={`/product-details/${product.id}`}>
+                                    <div className="card p-4 border border-0 bg-white shadow product-cards">
+                                        <div>
+                                            <AiOutlineHeart className="whishlist" size={20} />
+                                        </div>
+                                        <div className="mx-auto">
+                                            <img className='img-fluid product-img' src={product.imgUrl} alt={product.productName}/>
+                                        </div>
+                                        <div>
+                                            <p className="fs-5 fw-bold mt-3">{product.productName}</p>
+                                            <div className='text-warning ratings'>
+                                                <FontAwesomeIcon className='g-col-6' icon={faStar} />
+                                                <FontAwesomeIcon icon={faStar} />
+                                                <FontAwesomeIcon icon={faStar} />
+                                                <FontAwesomeIcon icon={faStar} />
+                                                <FontAwesomeIcon icon={faStar} />
+                                            </div>
+                                            <div className='d-flex justify-content-between mt-4 lh-lg'>
+                                                <p className='fs-2  fw-semibold'>$ {product.price}</p>
+                                                <button className='btn border rounded-circle'>+</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
         </>
