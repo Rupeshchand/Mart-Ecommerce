@@ -7,11 +7,15 @@ import { products } from '../Products'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import '../ProductDetails.css'
+import { useDispatch } from 'react-redux';
+import { add } from '../Redux/CartSlice';
 const ProductDetails = () => {
     const [product, setProduct] = useState({})
     const [desc, updateDesc] = useState('')
     const [relatedProducts, updateRelatedProducts] = useState([])
+    const [added,setAdded] = useState(false)
     const { id } = useParams()
+    const dispatch = useDispatch()
 
     useEffect(() => {
         const foundProduct = products.find((p) => p.id === id)
@@ -21,6 +25,10 @@ const ProductDetails = () => {
         setProduct(foundProduct)
         updateRelatedProducts(relatedProduct)
     }, [id, products, product.category])
+    const handleAdd = (product)=>{
+        dispatch(add(product))
+        setAdded(true)
+    }
     return (
         <>
             <div className="container-fluid bg-secondary w-100 p-5">
@@ -54,7 +62,7 @@ const ProductDetails = () => {
                         <div>
                             <p>{product.shortDesc}</p>
                         </div>
-                        <button className='btn pdBtn'>Add To Cart</button>
+                        <button className='btn pdBtn' onClick={()=>{handleAdd(product)}}>{added ? 'Added' : 'Add to cart'}</button>
                     </div>
                 </div>
             </div >
@@ -83,7 +91,7 @@ const ProductDetails = () => {
                                             </div>
                                             <div className='d-flex justify-content-between mt-4 lh-lg'>
                                                 <p className='fs-2  fw-semibold'>$ {product.price}</p>
-                                                <button className='btn border rounded-circle'>+</button>
+                                                <button className='btn border rounded-circle' onClick={()=>{handleAdd(product)}}>+</button>
                                             </div>
                                         </div>
                                     </div>

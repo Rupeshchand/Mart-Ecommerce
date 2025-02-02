@@ -4,6 +4,6 @@ const Store = configureStore({
     reducer:{
         cart:cartReducer
     }
-})
+}) 
 
 export default Store
