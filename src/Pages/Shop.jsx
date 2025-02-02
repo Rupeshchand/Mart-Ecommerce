@@ -93,13 +93,13 @@ const Shop = () => {
                 <div className="card p-4 border border-0 bg-white shadow product-cards">
                   <Link className='text-decoration-none' to={`/product-details/${product.id}`}>
                     <div>
-                      <AiOutlineHeart className="whishlist" size={20} />
+                      <AiOutlineHeart className="whishlist text-black" size={20} />
                     </div>
                     <div className="mx-auto">
                       <img className='img-fluid product-img' src={product.imgUrl} alt={product.productName} />
                     </div>
                     <div>
-                      <p className="fs-5 fw-bold mt-3">{product.productName}</p>
+                      <p className="fs-5 fw-bold mt-3 text-black">{product.productName}</p>
                     </div>
                   </Link>
                   <div className='text-warning ratings'>
@@ -111,7 +111,7 @@ const Shop = () => {
                   </div>
                   <div className='d-flex justify-content-between mt-4 lh-lg'>
                     <p className='fs-2  fw-semibold'>$ {product.price}</p>
-                    <button className='btn border rounded-circle' onClick={()=>{handleAdd(product)}}>+</button>
+                    <button className='btn border rounded-circle addBtn' onClick={()=>{handleAdd(product)}}>+</button>
                   </div>
                 </div>
               </div>

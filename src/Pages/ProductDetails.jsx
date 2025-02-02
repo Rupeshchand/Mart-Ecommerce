@@ -100,7 +100,7 @@ const ProductDetails = () => {
                                             </div>
                                             <div className='d-flex justify-content-between mt-4 lh-lg'>
                                                 <p className='fs-2  fw-semibold'>$ {product.price}</p>
-                                                <button className='btn border rounded-circle' onClick={() => { handleAdd(product) }}>+</button>
+                                                <button className='btn border rounded-circle addBtn' onClick={() => { handleAdd(product) }}>+</button>
                                             </div>
                                         </div>
                                     </div>

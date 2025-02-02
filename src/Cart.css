@@ -5,3 +5,11 @@
 .cartSummary{
     width: fit-content
 }
+.remove{
+    transform: translate(101px, -35px);
+    font-size: 25px;
+}
+.addMinusBtns{
+    transform: translate(50px, 3px);
+    width: fit-content;
+}

@@ -11,6 +11,8 @@ import { SliderData } from '../Products';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { add } from '../Redux/CartSlice';
+import context from '../Components/Header'
+
 const Home = () => {
     let settings = {
         dots: false,
@@ -96,6 +98,8 @@ export const DiscountedProdcts = () => {
     const handleAdd = (product) => {
         dispatch(add(product))
     }
+    // const [count,updateCount] = useContext(context)
+    // console.log(count)
     return (
         <>
             <div className="bigDiscContainer">
@@ -108,7 +112,7 @@ export const DiscountedProdcts = () => {
                                     <Link className='text-decoration-none' to={`/product-details/${product.id}`} >
                                         <div className='d-flex justify-content-between'>
                                             <p className='border border-0 rounded-pill p-1 discount'>{product.discount}% Off</p>
-                                            <AiOutlineHeart size={20} />
+                                            <AiOutlineHeart className="heart text-black" size={20} />
                                         </div>
                                         <div className="mx-auto">
                                             <img className='img-fluid product-img' src={product.imgUrl} alt={product.productName} />
@@ -125,7 +129,7 @@ export const DiscountedProdcts = () => {
                                         </div>
                                         <div className='d-flex justify-content-between mt-4 lh-lg'>
                                             <p className='fs-2  fw-semibold'>$ {product.price}</p>
-                                            <button className='btn border rounded-circle' onClick={() => { handleAdd(product) }}>+</button>
+                                            <button className='btn border rounded-circle addBtn' onClick={() => { handleAdd(product) }}>+</button>
                                         </div>
                                     </div>
                                 </div>
