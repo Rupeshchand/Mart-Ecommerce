@@ -1,9 +1,10 @@
 import { faClose } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useState,useEffect } from 'react'
+import React, { useState,useEffect, useContext } from 'react'
 import '../Cart.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { remove } from '../Redux/CartSlice'
+import { context } from '../Components/ContextProvider'
 const Cart = () => {
     const [quantity,updateQuantity] = useState(1)
     const cartData = useSelector(state => state.cart)
@@ -15,10 +16,12 @@ const Cart = () => {
             setNoItemMsg("No Items are added in cart")
         }
     },[cartData])
+    const {count,updateCount} = useContext(context)
     const handleRemove = (product) => {
         dispatch(remove(product))
+        updateCount(count-1)
     }
-    console.log(noItemMsg)
+    
     return (
         <>
             <div className="container mt-4">
@@ -49,11 +52,13 @@ const Cart = () => {
                                             <div className='addMinusBtns'>
                                                 <button className='btn border me-2' onClick={()=>{
                                                     updateQuantity(quantity+1)
+                                                    updateCount(count+1)
                                                 }}>+</button>
                                                 <button className='btn border' onClick={()=>{
                                                     updateQuantity(quantity-1)
+                                                    updateCount(count-1)
                                                     if(quantity === 1){
-                                                        handleRemove(product)
+                                                        handleRemove(product)   
                                                     }
                                                 }}>-</button>
                                             </div>

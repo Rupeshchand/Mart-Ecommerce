@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -11,8 +11,7 @@ import { SliderData } from '../Products';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { add } from '../Redux/CartSlice';
-import context from '../Components/Header'
-
+import { context } from '../Components/ContextProvider';
 const Home = () => {
     let settings = {
         dots: false,
@@ -97,9 +96,9 @@ export const DiscountedProdcts = () => {
     const dispatch = useDispatch()
     const handleAdd = (product) => {
         dispatch(add(product))
+        updateCount(count+1)
     }
-    // const [count,updateCount] = useContext(context)
-    // console.log(count)
+    const {count,updateCount} = useContext(context)
     return (
         <>
             <div className="bigDiscContainer">
