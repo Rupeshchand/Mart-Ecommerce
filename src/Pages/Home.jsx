@@ -13,6 +13,21 @@ import { useDispatch } from 'react-redux';
 import { add } from '../Redux/CartSlice';
 import { context } from '../Components/ContextProvider';
 import { products } from '../Products';
+import { Bounce, ToastContainer, toast } from 'react-toastify';
+const notify = () =>
+    toast.success('Product has been added to cart!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+        boxShadow: "none",
+        closeOnClick: true
+    });
 const Home = () => {
     let settings = {
         dots: false,
@@ -100,6 +115,7 @@ export const DiscountedProdcts = () => {
     const handleAdd = (product) => {
         dispatch(add(product))
         updateCount(count + 1)
+        notify()
     }
     const { count, updateCount } = useContext(context)
     return (
@@ -151,12 +167,26 @@ export const NewArrivals = () => {
     const handleAdd = (product) => {
         dispatch(add(product))
         updateCount(count + 1)
+        notify()
     }
     const allowedCategories = ["mobile", "wireless"]
     const category = products.filter((product) => allowedCategories.includes(product.category))
     const { count, updateCount } = useContext(context)
     return (
         <>
+        <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick={false}
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+                transition={Bounce}
+              />
             <div className="newArrivalsContainer bg-white">
                 <h2 className='text-center discTitle'>New Arrivals</h2>
                 <div className="row d-flex justify-content-center mt-5 mb-5" >
@@ -202,6 +232,7 @@ export const BestSales = () => {
     const handleAdd = (product) => {
         dispatch(add(product))
         updateCount(count + 1)
+        notify()
     }
     const category = products.filter((product) => product.category === 'sofa')
     const { count, updateCount } = useContext(context)

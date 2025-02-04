@@ -1,3 +1,12 @@
+/* body{
+    padding-top: 60px;
+} */
+.header{
+    position: fixed !important;
+    top: 0;
+    z-index: 100;
+    width: 1520px;
+}
 .count{
     font-size: 18px;
     width: 20px;

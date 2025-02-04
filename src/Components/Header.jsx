@@ -9,7 +9,7 @@ const Header = () => {
     const {count} = useContext(context)
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-white p-4 shadow ">
+            <nav className="navbar navbar-expand-lg bg-white p-4 shadow header">
                 <div className="container-fluid ms-4">
                     <Link className="navbar-brand fs-2" to="/"><FontAwesomeIcon icon={faBagShopping} />
                         Mart</Link>

@@ -13,3 +13,6 @@
     transform: translate(50px, 3px);
     width: fit-content;
 }
+.cartContainer{
+    padding-top: 100px;
+}

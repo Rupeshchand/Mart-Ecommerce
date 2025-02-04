@@ -24,7 +24,7 @@ const Cart = () => {
     
     return (
         <>
-            <div className="container mt-4">
+            <div className="container cartContainer mt-4">
                 <div className="row">
                     <div className="col-md-8 mb-4 mt-5 ">
                         {

@@ -1,6 +1,6 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../Shop.css'
 import { products } from '../Products'
@@ -8,6 +8,8 @@ import { AiOutlineHeart } from 'react-icons/ai';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from 'react-redux'
 import { add } from '../Redux/CartSlice'
+import { Bounce, ToastContainer, toast } from 'react-toastify';
+import { context } from '../Components/ContextProvider'
 const Shop = () => {
   const [dropdownName, updateDropDown] = useState('Filter By Category')
   const [filteredData, updateFilteredData] = useState(products)
@@ -29,19 +31,49 @@ const Shop = () => {
   }
   useEffect(() => {
     if (filteredData.length === 0) {
-      updateMessage("Products not found")
+      updateMessage("Product has been added to cart!")
     }
     else {
       updateMessage("")
     }
   }, [filteredData])
   const dispatch = useDispatch()
-  const handleAdd = (product)=>{
+  const { count, updateCount } = useContext(context)
+  const handleAdd = (product) => {
     dispatch(add(product))
+    updateCount(count + 1)
+    notify()
   }
+  const notify = () =>
+    toast.success('Product has been added to cart!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+      boxShadow: "none",
+      closeOnClick: true
+    });
   return (
     <>
-      <div className="container-fluid bg-secondary w-100 p-5">
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+      />
+      <div className="container-fluid bg-secondary w-100 shopContainer">
         <h1 className='text-white text-center p-3'>Products</h1>
       </div>
       <div className="container mt-5 mb-5">
@@ -95,7 +127,7 @@ const Shop = () => {
                     <div>
                       <AiOutlineHeart className="whishlist text-black" size={20} />
                     </div>
-                    <div className="mx-auto">
+                    <div className="mx-auto mt-5">
                       <img className='img-fluid product-img' src={product.imgUrl} alt={product.productName} />
                     </div>
                     <div>
@@ -111,7 +143,7 @@ const Shop = () => {
                   </div>
                   <div className='d-flex justify-content-between mt-4 lh-lg'>
                     <p className='fs-2  fw-semibold'>$ {product.price}</p>
-                    <button className='btn border rounded-circle addBtn' onClick={()=>{handleAdd(product)}}>+</button>
+                    <button className='btn border rounded-circle addBtn' onClick={() => { handleAdd(product) }}>+</button>
                   </div>
                 </div>
               </div>

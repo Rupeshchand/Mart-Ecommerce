@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AiOutlineHeart } from 'react-icons/ai';
 import { useState, useEffect } from 'react'
@@ -9,6 +9,22 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 import '../ProductDetails.css'
 import { useDispatch } from 'react-redux';
 import { add } from '../Redux/CartSlice';
+import { Bounce, ToastContainer, toast } from 'react-toastify';
+import { context } from '../Components/ContextProvider';
+const notify = () =>
+    toast.success('Product has been added to cart!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+        boxShadow: "none",
+        closeOnClick: true
+    });
 const ProductDetails = () => {
     const [product, setProduct] = useState({})
     // const [desc, updateDesc] = useState('')
@@ -26,12 +42,28 @@ const ProductDetails = () => {
         setProduct(foundProduct)
         updateRelatedProducts(relatedProduct)
     }, [id, products, product.category])
+    const {count,updateCount} = useContext(context)
     const handleAdd = (product) => {
         dispatch(add(product))
         setAdded(true)
+        updateCount(count+1)
+        notify()
     }
     return (
         <>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick={false}
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+                transition={Bounce}
+            />
             <div className="container-fluid bg-secondary w-100 p-5">
                 <h1 className='text-white text-center p-3'>{product.productName}</h1>
             </div>
@@ -70,7 +102,7 @@ const ProductDetails = () => {
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item"><Link to="#">Description</Link></li>
-                            {/* <p>{product.description}</p> */}
+                    {/* <p>{product.description}</p> */}
                     <li className="breadcrumb-item active" aria-current="page">Reviews (2)</li>
                 </ol>
             </nav>
