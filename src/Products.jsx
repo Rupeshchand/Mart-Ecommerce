@@ -89,7 +89,7 @@ export const serviceData = [
   },
 ];
 
-export const discoutProducts = [
+export const discountProducts = [
   {
     id: "01",
     productName: "Stone and Beam Westview ",

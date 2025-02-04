@@ -6,12 +6,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCar, faCreditCard, faHeadphonesSimple, faShieldAlt, faStar } from '@fortawesome/free-solid-svg-icons';
 import '../Home.css'
 import { AiOutlineHeart } from 'react-icons/ai';
-import { discoutProducts } from '../Products';
+import { discountProducts } from '../Products';
 import { SliderData } from '../Products';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { add } from '../Redux/CartSlice';
 import { context } from '../Components/ContextProvider';
+import { products } from '../Products';
 const Home = () => {
     let settings = {
         dots: false,
@@ -47,6 +48,7 @@ const Home = () => {
             </div>
             <DummyCards />
             <DiscountedProdcts />
+            <NewArrivals />
         </>
     )
 }
@@ -96,16 +98,16 @@ export const DiscountedProdcts = () => {
     const dispatch = useDispatch()
     const handleAdd = (product) => {
         dispatch(add(product))
-        updateCount(count+1)
+        updateCount(count + 1)
     }
-    const {count,updateCount} = useContext(context)
+    const { count, updateCount } = useContext(context)
     return (
         <>
             <div className="bigDiscContainer">
                 <h2 className='text-center discTitle'>Big Discount</h2>
                 <div className="row d-flex justify-content-center mt-5 mb-5 gap-0" >
                     {
-                        discoutProducts && discoutProducts.length > 0 && discoutProducts.map((product) => (
+                        discountProducts && discountProducts.length > 0 && discountProducts.map((product) => (
                             <div className="col-md-3 m-2" key={product.id}>
                                 <div className="card p-4 border border-0 bg-white shadow product-cards">
                                     <Link className='text-decoration-none' to={`/product-details/${product.id}`} >
@@ -133,6 +135,57 @@ export const DiscountedProdcts = () => {
                                     </div>
                                 </div>
 
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </>
+    )
+}
+
+//New Arrivals
+export const NewArrivals = () => {
+    const dispatch = useDispatch()
+    const handleAdd = (product) => {
+        dispatch(add(product))
+        updateCount(count + 1)
+    }
+    const allowedCategories = ["mobile","wireless"]
+    const category = products.filter((product) => allowedCategories.includes(product.category))
+    const { count, updateCount } = useContext(context)
+    return (
+        <>
+            <div className="newArrivalsContainer">
+                <h2 className='text-center discTitle'>New Arrivals</h2>
+                <div className="row d-flex justify-content-center mt-5 mb-5" >
+                    {
+                        category && category.length > 0 && category.map((product) => (
+                            <div className="col-md-3 m-2" key={product.id}>
+                                <div className="card p-4 border border-0 bg-white shadow product-cards">
+                                    <Link className='text-decoration-none' to={`/product-details/${product.id}`}>
+                                        <div>
+                                            <AiOutlineHeart className="whishlist text-black" size={20} />
+                                        </div>
+                                        <div className="mx-auto">
+                                            <img className='img-fluid product-img' src={product.imgUrl} alt={product.productName} />
+                                        </div>
+                                        <div>
+                                            <p className="fs-5 fw-bold mt-3 text-black">{product.productName}</p>
+                                        </div>
+                                    </Link>
+                                    <div className='text-warning ratings'>
+                                        <FontAwesomeIcon className='g-col-6' icon={faStar} />
+                                        <FontAwesomeIcon icon={faStar} />
+                                        <FontAwesomeIcon icon={faStar} />
+                                        <FontAwesomeIcon icon={faStar} />
+                                        <FontAwesomeIcon icon={faStar} />
+                                    </div>
+                                    <div className='d-flex justify-content-between mt-4 lh-lg'>
+                                        <p className='fs-2  fw-semibold'>$ {product.price}</p>
+                                        <button className='btn border rounded-circle addBtn' onClick={() => { handleAdd(product) }}>+</button>
+                                    </div>
+                                </div>
                             </div>
                         ))
                     }
