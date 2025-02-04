@@ -49,6 +49,7 @@ const Home = () => {
             <DummyCards />
             <DiscountedProdcts />
             <NewArrivals />
+            <BestSales />
         </>
     )
 }
@@ -151,12 +152,12 @@ export const NewArrivals = () => {
         dispatch(add(product))
         updateCount(count + 1)
     }
-    const allowedCategories = ["mobile","wireless"]
+    const allowedCategories = ["mobile", "wireless"]
     const category = products.filter((product) => allowedCategories.includes(product.category))
     const { count, updateCount } = useContext(context)
     return (
         <>
-            <div className="newArrivalsContainer">
+            <div className="newArrivalsContainer bg-white">
                 <h2 className='text-center discTitle'>New Arrivals</h2>
                 <div className="row d-flex justify-content-center mt-5 mb-5" >
                     {
@@ -167,7 +168,57 @@ export const NewArrivals = () => {
                                         <div>
                                             <AiOutlineHeart className="whishlist text-black" size={20} />
                                         </div>
-                                        <div className="mx-auto">
+                                        <div className="mx-auto mt-5">
+                                            <img className='img-fluid product-img' src={product.imgUrl} alt={product.productName} />
+                                        </div>
+                                        <div>
+                                            <p className="fs-5 fw-bold mt-3 text-black">{product.productName}</p>
+                                        </div>
+                                    </Link>
+                                    <div className='text-warning ratings'>
+                                        <FontAwesomeIcon className='g-col-6' icon={faStar} />
+                                        <FontAwesomeIcon icon={faStar} />
+                                        <FontAwesomeIcon icon={faStar} />
+                                        <FontAwesomeIcon icon={faStar} />
+                                        <FontAwesomeIcon icon={faStar} />
+                                    </div>
+                                    <div className='d-flex justify-content-between mt-4 lh-lg'>
+                                        <p className='fs-2  fw-semibold'>$ {product.price}</p>
+                                        <button className='btn border rounded-circle addBtn' onClick={() => { handleAdd(product) }}>+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </>
+    )
+}
+
+//Best Sales
+export const BestSales = () => {
+    const dispatch = useDispatch()
+    const handleAdd = (product) => {
+        dispatch(add(product))
+        updateCount(count + 1)
+    }
+    const category = products.filter((product) => product.category === 'sofa')
+    const { count, updateCount } = useContext(context)
+    return (
+        <>
+            <div className="bestSalesContainer">
+                <h2 className='text-center bestSalesTitle'>Best Sales</h2>
+                <div className="row d-flex justify-content-center mt-5 mb-5" >
+                    {
+                        category && category.length > 0 && category.map((product) => (
+                            <div className="col-md-3 m-2" key={product.id}>
+                                <div className="card p-4 border border-0 bg-white shadow product-cards">
+                                    <Link className='text-decoration-none' to={`/product-details/${product.id}`}>
+                                        <div>
+                                            <AiOutlineHeart className="whishlist text-black" size={20} />
+                                        </div>
+                                        <div className="mx-auto mt-5">
                                             <img className='img-fluid product-img' src={product.imgUrl} alt={product.productName} />
                                         </div>
                                         <div>

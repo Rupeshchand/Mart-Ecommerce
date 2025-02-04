@@ -69,9 +69,18 @@
     display: flex;
     gap: 10px;
 }
-.bigDiscContainer,.newArrivalsContainer{
+.bigDiscContainer,.bestSalesContainer{
     background-color: #f0f7fc;
-    margin-top: 8%;   
+    margin-top: 5%;   
+    padding: 70px;
+}
+.newArrivalsContainer{
+    margin-top: 2%;   
+    padding: 70px;
+}
+.bestSalesContainer{
+    background-color: #f0f7fc;
+    margin-top: 2%;   
     padding: 70px;
 }
 .discTitle{
