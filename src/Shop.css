@@ -1,45 +1,267 @@
-.searchBtn{
-    position: absolute !important; 
-    left:89%
+@media (max-width:1440px){
+    .searchBtn{
+        position: absolute !important; 
+        left:86%
+    }
+    .filterCat, .filterCat:hover,.dropdown-item:hover{
+        background-color: #003153;
+        color: white;
+    }
+    .vertical-line{
+        position: absolute;
+        top: 7px;
+        left: 140px;
+        border-left: 1px solid;
+        height:25px;
+        margin: 0 auto;
+    }
+    .noProductFound{
+       font-size: 50px;
+    }
+    .product-cards{
+        position: relative;
+    }
+    .list{
+        column-gap: 30px;
+        row-gap: 10px;
+    }
+    .whishlist{
+        position: absolute;
+        opacity: 0;
+        left: 90%;
+        float: right;
+    }
+    .product-cards:hover .whishlist{
+        opacity: 1;
+    }
+    .addBtn{
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        font-size: 30px;
+    }
+    .addBtn:hover{
+        background-color: #003153;
+        color: white;
+    }
+    .shopContainer{
+        padding-top: 200px;
+        padding-bottom: 50px;
+    }
+    .productsContainer{
+        margin: 0;
+        transform: translateX(40px);
+    }
 }
-.filterCat, .filterCat:hover,.dropdown-item:hover{
-    background-color: #003153;
-    color: white;
+@media (max-width:1024px){
+    .searchBtn{
+        position: absolute !important; 
+        left:86%
+    }
+    .filterCat, .filterCat:hover,.dropdown-item:hover{
+        background-color: #003153;
+        color: white;
+    }
+    .vertical-line{
+        position: absolute;
+        top: 7px;
+        left: 140px;
+        border-left: 1px solid;
+        height:25px;
+        margin: 0 auto;
+    }
+    .noProductFound{
+       font-size: 50px;
+    }
+    .product-cards{
+        position: relative;
+        width: 140%;
+    }
+    .list{
+        column-gap: 70px;
+        row-gap: 10px;
+    }
+    .whishlist{
+        position: absolute;
+        opacity: 0;
+        left: 90%;
+        float: right;
+    }
+    .product-cards:hover .whishlist{
+        opacity: 1;
+    }
+    .addBtn{
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        font-size: 30px;
+    }
+    .addBtn:hover{
+        background-color: #003153;
+        color: white;
+    }
+    .productsContainer{
+        margin: 0;
+        transform: translateX(-16px);
+    }
+    .shopContainer{
+        padding-top: 200px;
+        padding-bottom: 50px;
+    }
+    .rounded-pill{
+        width: 90%;
+    }
 }
-.vertical-line{
-    position: absolute;
-    top: 7px;
-    left: 140px;
-    border-left: 1px solid;
-    height:25px;
-    margin: 0 auto;
+@media (max-width:768px){
+    .searchBtn{
+        position: absolute !important; 
+        left:86%
+    }
+    .filterCat, .filterCat:hover,.dropdown-item:hover{
+        background-color: #003153;
+        color: white;
+    }
+    .vertical-line{
+        position: absolute;
+        top: 7px;
+        left: 140px;
+        border-left: 1px solid;
+        height:25px;
+        margin: 0 auto;
+    }
+    .noProductFound{
+       font-size: 50px;
+    }
+    .product-cards{
+        position: relative;
+    }
+    .list{
+        column-gap: 80px;
+        row-gap: 10px;
+    }
+    .whishlist{
+        position: absolute;
+        opacity: 0;
+        left: 90%;
+        float: right;
+    }
+    .product-cards:hover .whishlist{
+        opacity: 1;
+    }
+    .addBtn{
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        font-size: 30px;
+    }
+    .addBtn:hover{
+        background-color: #003153;
+        color: white;
+    }
+    .shopContainer{
+        padding-top: 200px;
+        padding-bottom: 50px;
+    }
 }
-.noProductFound{
-   font-size: 50px;
+@media (max-width:576px){
+    .searchBtn{
+        position: absolute !important; 
+        left:86%
+    }
+    .filterCat, .filterCat:hover,.dropdown-item:hover{
+        background-color: #003153;
+        color: white;
+    }
+    .vertical-line{
+        position: absolute;
+        top: 7px;
+        left: 140px;
+        border-left: 1px solid;
+        height:25px;
+        margin: 0 auto;
+    }
+    .noProductFound{
+       font-size: 50px;
+    }
+    .product-cards{
+        position: relative;
+    }
+    .list{
+        column-gap: 80px;
+        row-gap: 10px;
+    }
+    .whishlist{
+        position: absolute;
+        opacity: 0;
+        left: 90%;
+        float: right;
+    }
+    .product-cards:hover .whishlist{
+        opacity: 1;
+    }
+    .addBtn{
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        font-size: 30px;
+    }
+    .addBtn:hover{
+        background-color: #003153;
+        color: white;
+    }
+    .shopContainer{
+        padding-top: 200px;
+        padding-bottom: 50px;
+    }
 }
-.product-cards{
-    position: relative;
-}
-.whishlist{
-    position: absolute;
-    opacity: 0;
-    left: 90%;
-    float: right;
-}
-.product-cards:hover .whishlist{
-    opacity: 1;
-}
-.addBtn{
-    width: 50px;
-    height: 50px;
-    padding: 0;
-    font-size: 30px;
-}
-.addBtn:hover{
-    background-color: #003153;
-    color: white;
-}
-.shopContainer{
-    padding-top: 200px;
-    padding-bottom: 50px;
+@media (max-width:428px){
+    .searchBtn{
+        position: absolute !important; 
+        left:86%
+    }
+    .filterCat, .filterCat:hover,.dropdown-item:hover{
+        background-color: #003153;
+        color: white;
+    }
+    .vertical-line{
+        position: absolute;
+        top: 7px;
+        left: 140px;
+        border-left: 1px solid;
+        height:25px;
+        margin: 0 auto;
+    }
+    .noProductFound{
+       font-size: 50px;
+    }
+    .product-cards{
+        position: relative;
+    }
+    .list{
+        column-gap: 80px;
+        row-gap: 10px;
+    }
+    .whishlist{
+        position: absolute;
+        opacity: 0;
+        left: 90%;
+        float: right;
+    }
+    .product-cards:hover .whishlist{
+        opacity: 1;
+    }
+    .addBtn{
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        font-size: 30px;
+    }
+    .addBtn:hover{
+        background-color: #003153;
+        color: white;
+    }
+    .shopContainer{
+        padding-top: 200px;
+        padding-bottom: 50px;
+    }
 }

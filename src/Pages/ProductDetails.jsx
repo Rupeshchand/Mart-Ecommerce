@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useRef } from 'react'
+import { Link, Outlet } from 'react-router-dom'
 import { AiOutlineHeart } from 'react-icons/ai';
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
@@ -27,10 +27,10 @@ const notify = () =>
     });
 const ProductDetails = () => {
     const [product, setProduct] = useState({})
-    // const [desc, updateDesc] = useState('')
-    const [reviews, updateReviews] = useState('')
     const [relatedProducts, updateRelatedProducts] = useState([])
     const [added, setAdded] = useState(false)
+    const [descriptionColor, setDescriptionColor] = useState('gray')
+    const [reviewsColor, setReviewsColor] = useState('gray')
     const { id } = useParams()
     const dispatch = useDispatch()
 
@@ -42,13 +42,14 @@ const ProductDetails = () => {
         setProduct(foundProduct)
         updateRelatedProducts(relatedProduct)
     }, [id, products, product.category])
-    const {count,updateCount} = useContext(context)
+    const { count, updateCount } = useContext(context)
     const handleAdd = (product) => {
         dispatch(add(product))
         setAdded(true)
-        updateCount(count+1)
+        updateCount(count + 1)
         notify()
     }
+    let ele = useRef(null)
     return (
         <>
             <ToastContainer
@@ -64,7 +65,7 @@ const ProductDetails = () => {
                 theme="light"
                 transition={Bounce}
             />
-            <div className="container-fluid bg-secondary w-100 p-5">
+            <div className="container-fluid pdContainer bg-secondary w-100">
                 <h1 className='text-white text-center p-3'>{product.productName}</h1>
             </div>
             <div className="container">
@@ -99,14 +100,12 @@ const ProductDetails = () => {
                     </div>
                 </div>
             </div >
-            <nav aria-label="breadcrumb">
-                <ol className="breadcrumb">
-                    <li className="breadcrumb-item"><Link to="#">Description</Link></li>
-                    {/* <p>{product.description}</p> */}
-                    <li className="breadcrumb-item active" aria-current="page">Reviews (2)</li>
-                </ol>
-            </nav>
-            {/* <p>{product.description}</p> */}
+            {/* style={{ marginLeft: "75px", width: "fit-content", paddingTop: "25px" }} */}
+            <div style={{marginLeft:"34px",marginTop:"20px"}}>
+                <button className="btn" onClick={()=>{setDescriptionColor('black')}}><Link style={{ color: descriptionColor }} className="text-decoration-none" to="description">Description</Link></button>
+                <button className="btn" onClick={() => { setReviewsColor("black") }} onMouseLeave={()=>{setReviewsColor('gray')}}><Link style={{ color: reviewsColor }} className="text-decoration-none text-secondary" to="reviews">Reviews (2)</Link></button>
+            </div>
+            <Outlet />
             <div className="container">
                 <div className="row d-flex justify-content-center mt-5 mb-5 gap-4" >
                     <h2>You May Also Like</h2>
@@ -146,4 +145,28 @@ const ProductDetails = () => {
     )
 }
 
+export const Description = () => {
+    return (
+        <>
+            <div className='ms-5'>
+                <p className='text-wrap'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio nostrum accusantium iste, voluptas cumque provident! Consequatur officiis animi rem tempore voluptate cumque hic similique aperiam ut consectetur distinctio repudiandae quia quam quos, quas illo, iusto, necessitatibus odio veniam exercitationem quis voluptatibus debitis laboriosam! Esse debitis obcaecati blanditiis at impedit quibusdam!"
+                </p>
+            </div>
+        </>
+    )
+}
+export const Reviews = () => {
+    return (
+        <>
+            <div className='ms-5 lh-sm'>
+                <p className='fw-bold'>Jhon Doe</p>
+                <p className='text-warning'>4.8 (rating)</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
+                <p className='fw-bold'>Jhon Doe</p>
+                <p className='text-warning'>4.8 (rating)</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
+            </div>
+        </>
+    )
+}
 export default ProductDetails 

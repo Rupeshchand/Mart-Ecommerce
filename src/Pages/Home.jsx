@@ -40,20 +40,18 @@ const Home = () => {
     return (
         <>
             <div className='sliderContainer'>
-
                 <Slider {...settings}>
                     {
                         SliderData.map((banner) => (
-
-                            <div className='slide border border-0 m-5' key={banner.id}>
-                                <div className="row align-items-center m-5">
+                            <div className='slide border border-0' key={banner.id}>
+                                <div className="row align-items-center slideRow">
                                     <div className="col">
                                         <h1 className='bannerTitle'>{banner.title}</h1>
-                                        <p className='bannerDesc'>{banner.desc}</p>
+                                        <p className='bannerDesc text-wrap'>{banner.desc}</p>
                                         <button className='border border-0 p-1'>Visit Collections</button>
                                     </div>
-                                    <div className="col ms-5">
-                                        <img src={banner.cover} alt={banner.title} />
+                                    <div className="col">
+                                        <img src={banner.cover} alt={banner.title} className='bannerImg'/>
                                     </div>
                                 </div>
                             </div>
@@ -122,11 +120,11 @@ export const DiscountedProdcts = () => {
         <>
             <div className="bigDiscContainer">
                 <h2 className='text-center discTitle'>Big Discount</h2>
-                <div className="row d-flex justify-content-center mt-5 mb-5 gap-0" >
+                <div className="row d-flex justify-content-center mt-5 mb-5 bigDiscCards" >
                     {
                         discountProducts && discountProducts.length > 0 && discountProducts.map((product) => (
-                            <div className="col-md-3 m-2" key={product.id}>
-                                <div className="card p-4 border border-0 bg-white shadow product-cards">
+                            <div className="col-lg-3 col-md-2 m-2" key={product.id}>
+                                <div className="card p-4 border border-0 bg-white shadow product-cards" width="200%" height="auto">
                                     <Link className='text-decoration-none' to={`/product-details/${product.id}`} >
                                         <div className='d-flex justify-content-between'>
                                             <p className='border border-0 rounded-pill p-1 discount'>{product.discount}% Off</p>
@@ -188,12 +186,12 @@ export const NewArrivals = () => {
                 transition={Bounce}
               />
             <div className="newArrivalsContainer bg-white">
-                <h2 className='text-center discTitle'>New Arrivals</h2>
-                <div className="row d-flex justify-content-center mt-5 mb-5" >
+                <h2 className='newTitle text-center mb-5'>New Arrivals</h2>
+                <div className="row d-flex justify-content-center  newArrivalsCards" >
                     {
                         category && category.length > 0 && category.map((product) => (
-                            <div className="col-md-3 m-2" key={product.id}>
-                                <div className="card p-4 border border-0 bg-white shadow product-cards">
+                            <div className="col-lg-3 col-md-2 m-2" key={product.id}>
+                                <div className="card p-4 border border-0 bg-white shadow product-cards" width="200%">
                                     <Link className='text-decoration-none' to={`/product-details/${product.id}`}>
                                         <div>
                                             <AiOutlineHeart className="whishlist text-black" size={20} />
@@ -240,10 +238,10 @@ export const BestSales = () => {
         <>
             <div className="bestSalesContainer">
                 <h2 className='text-center bestSalesTitle'>Best Sales</h2>
-                <div className="row d-flex justify-content-center mt-5 mb-5" >
+                <div className="row d-flex justify-content-center mt-5 mb-5 bestSalesCards" >
                     {
                         category && category.length > 0 && category.map((product) => (
-                            <div className="col-md-3 m-2" key={product.id}>
+                            <div className="col-lg-3 col-md-2 m-2" key={product.id}>
                                 <div className="card p-4 border border-0 bg-white shadow product-cards">
                                     <Link className='text-decoration-none' to={`/product-details/${product.id}`}>
                                         <div>

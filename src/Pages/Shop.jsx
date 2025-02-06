@@ -76,7 +76,7 @@ const Shop = () => {
       <div className="container-fluid bg-secondary w-100 shopContainer">
         <h1 className='text-white text-center p-3'>Products</h1>
       </div>
-      <div className="container mt-5 mb-5">
+      <div className="container pt-5">
         <div className="row">
           <div className="col">
             <div className="dropdown position-relative">
@@ -114,14 +114,14 @@ const Shop = () => {
           </div>
         </div>
       </div>
-      <div className='noProdMsg d-flex justify-content-around'>
+      <div className='noProdMsg d-flex justify-content-around mt-5'>
         {message && <h2 className='noProductFound'>{message}</h2>}
       </div>
-      <div className="container">
-        <div className="row d-flex justify-content-center mt-5 mb-5 gap-4" >
+      <div className="container productsContainer">
+        <div className="row d-flex justify-content-center mt-5 mb-5 list">
           {
             filteredData && filteredData.length > 0 && filteredData.map((product) => (
-              <div className="col-md-3 m-2" key={product.id}>
+              <div className="col-lg-3 col-md-2 m-2" key={product.id}>
                 <div className="card p-4 border border-0 bg-white shadow product-cards">
                   <Link className='text-decoration-none' to={`/product-details/${product.id}`}>
                     <div>
