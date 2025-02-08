@@ -26,15 +26,15 @@ const Cart = () => {
         <>
             <div className="container cartContainer mt-4">
                 <div className="row">
-                    <div className="col-md-8 mb-4 mt-5 ">
+                    <div className="col-md-8 col-lg-8 col-xxl-8">
                         {
                             cartData && cartData.length > 0 ? (cartData.map((product) => (
-                                <div className="card md-3 border-0 shadow mb-4 p-5" key={product.id}>
+                                    <div className="card md-3 border-0 shadow mb-4 p-5" key={product.id}>
                                     <div className="row ">
                                         <div className="col">
-                                            <img src={product.imgUrl} alt={product.productName} className='img-fluid rounded-start' width={300} />
+                                            <img src={product.imgUrl} alt={product.productName} className='img rounded-start' width={150}/>
                                         </div>
-                                        <div className="col-md-8">
+                                        <div className="col-md-8 w-auto">
                                             <div className="card-body">
                                                 <h5 className='card-title'>{product.productName}</h5>
                                                 <p className='card-text'>
@@ -45,7 +45,7 @@ const Cart = () => {
 
                                             </div>
                                         </div>
-                                        <div className="col">
+                                        <div className="col w-auto">
                                             <button className='btn remove' onClick={() => {
                                                 handleRemove(product)
                                             }}><FontAwesomeIcon icon={faClose} /></button>
@@ -76,7 +76,7 @@ const Cart = () => {
                             </div> 
                         }
                     </div>
-                    <div className='col-md-4 mt-5 mb-5'>
+                    <div className='col-md-4 col-lg-4 col-xxl-4 mb-5'>
                         <div className="card border-0 shadow">
                             <div className="card-body">
                                 <h5 className='card-title'>Cart Summary</h5>

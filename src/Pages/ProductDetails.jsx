@@ -70,10 +70,10 @@ const ProductDetails = () => {
             </div>
             <div className="container">
                 <div className="row d-flex align-items-center">
-                    <div className="col">
-                        <img src={product.imgUrl} alt={product.productName} width={500} />
+                    <div className="col-md-6 col-lg-6 col-xxl-6">
+                        <img className="img-fluid" src={product.imgUrl} alt={product.productName} width={500} />
                     </div>
-                    <div className="col">
+                    <div className="col-md-6 col-lg-6 col-xxl-6">
                         <h1>{product.productName}</h1>
                         <div className='row aliggn-items-center'>
                             <div className='col text-warning ratings'>
@@ -107,11 +107,11 @@ const ProductDetails = () => {
             </div>
             <Outlet />
             <div className="container">
-                <div className="row d-flex justify-content-center mt-5 mb-5 gap-4" >
+                <div className="row d-flex justify-content-center mb-5 gx-4 gy-4" >
                     <h2>You May Also Like</h2>
                     {
                         relatedProducts && relatedProducts.length > 0 && relatedProducts.map((product) => (
-                            <div className="col-md-3 m-2" key={product.id}>
+                            <div className="col-md-6 col-lg-4 col-xxl-4 w-auto" key={product.id}>
                                 <Link className='text-decoration-none' to={`/product-details/${product.id}`}>
                                     <div className="card p-4 border border-0 bg-white shadow product-cards">
                                         <div>
@@ -148,8 +148,8 @@ const ProductDetails = () => {
 export const Description = () => {
     return (
         <>
-            <div className='ms-5'>
-                <p className='text-wrap'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio nostrum accusantium iste, voluptas cumque provident! Consequatur officiis animi rem tempore voluptate cumque hic similique aperiam ut consectetur distinctio repudiandae quia quam quos, quas illo, iusto, necessitatibus odio veniam exercitationem quis voluptatibus debitis laboriosam! Esse debitis obcaecati blanditiis at impedit quibusdam!"
+            <div className='ms-5 row'>
+                <p className='text-wrap col-md-12 col-lg-12 col-xxl-12'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio nostrum accusantium iste, voluptas cumque provident! Consequatur officiis animi rem tempore voluptate cumque hic similique aperiam ut consectetur distinctio repudiandae quia quam quos, quas illo, iusto, necessitatibus odio veniam exercitationem quis voluptatibus debitis laboriosam! Esse debitis obcaecati blanditiis at impedit quibusdam!"
                 </p>
             </div>
         </>

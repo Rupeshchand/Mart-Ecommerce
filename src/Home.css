@@ -1,656 +1,169 @@
-@media (max-width:1440px){
-    .card-grid{
-        display: grid;
-        grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-        gap: 5px;
-        padding: 20px;
-    }
-    .cardOne{
-        border: 0;
-        background-color: #fff1e6;
-        width: 95%;
-        height: 125%;
-    }
-    .cardTwo{
-        border: 0;
-        background-color: #b8eeec;
-        width: 95%;
-        height: 125%;
-    }
-    .cardThree{
-        border: 0;
-        background-color: #ededb8;
-        width: 95%;
-        height: 125%;
-    }
-    .cardFour{
-        border: 0;
-        background-color: #C3D9FF;
-        width: 95%;
-        height: 125%;
-    }
-    .sliderContainer{
-        background-color: #f0f7fc;
-        /* padding-top: 80px; */
-        width: 100%;
-    }
-    .slide{
-        margin: 70px;
-    }
-    .bannerImg{
-        width: 500px;
-    }
-    .slideRow{
-        height: 500px;
-    }
-    .bannerTitle{
-        font-size: 50px;
-    }
-    .bannerDesc{
-        font-size: 20px;
-    }
-    /* .slick-prev, .slich-next{
-        z-index: 10;
-        display: block !important;
-    } */
-    .addBtn{
-        width: 50px;
-        height: 50px;
-        padding: 0;
-        font-size: 30px;
-    }
-    .addBtn:hover{
-        background-color: #003153;
-        color: white;
-    }
-    .discount{
-        background-color: #003153;
-        color: white;
-        width: 20%;
-        height: 30px;
-        font-size: 13px;
-        text-align: center;
-    }
-    .product-img{
-        width: 300px;
-        height: 200px;
-    }
-    .product-cards{
-        width: 350px;
-        height: 500px;
-    }
-    .ratings{
-        display: flex;
-        gap: 10px;
-    }
-    .bigDiscContainer,.bestSalesContainer{
-        background-color: #f0f7fc;
-        margin-top: 5%;   
-        padding: 70px;
-    }
-    .newArrivalsContainer{
-        margin-top: 2%;   
-        padding: 70px;
-    }
-    .bestSalesContainer{
-        background-color: #f0f7fc;
-        margin-top: 2%;   
-        padding: 70px;
-    }
-    .discTitle{
-        font-size: 40px
-    }
-    .heart{
-        opacity: 0;
-    }
-    .product-cards:hover .heart{
-        opacity: 1;
-    }
-    .bigDiscCards{
-        column-gap: 62px;
-        row-gap: 10px;
-        margin-right: 70px;
-    }
-    .newArrivalsCards{
-        column-gap: 62px;
-        row-gap: 10px;
-        margin-right: 70px;
-    }
-    .bestSalesCards{
-        column-gap: 62px;
-        row-gap: 10px;
-        margin-right: 70px;
-    }
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    row-gap: 55px;
+    padding: 20px;
+    margin-bottom: 50px;
 }
-@media (max-width:1024px){
-    .card-grid{
-        display: grid;
-        grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-        gap: 5px;
-        row-gap: 54px;
-        padding: 20px;
-        margin-left: 20px;
-    }
-    .cardOne{
-        border: 0;
-        background-color: #fff1e6;
-        width: 95%;
-        height: 125%;
-    }
-    .cardTwo{
-        border: 0;
-        background-color: #b8eeec;
-        width: 95%;
-        height: 125%;
-    }
-    .cardThree{
-        border: 0;
-        background-color: #ededb8;
-        width: 95%;
-        height: 125%;
-    }
-    .cardFour{
-        border: 0;
-        background-color: #C3D9FF;
-        width: 95%;
-        height: 125%;
-    }
-    .sliderContainer{
-        background-color: #f0f7fc;
-        padding-top: 80px;
-        width: 105%;
-    }
-    .slide{
-        margin: 70px;
-    }
-    .bannerTitle{
-        font-size: 50px;
-    }
-    .bannerDesc{
-        font-size: 20px;
-    }
-    .bannerImg{
-        width: 450px;
-    }
-    /* .bannerImg{
-        width: 100%;
-    } */
-    /* .slick-prev, .slich-next{
+
+.cardOne {
+    border: 0;
+    background-color: #fff1e6;
+    width: 95%;
+    height: 125%;
+}
+
+.cardTwo {
+    border: 0;
+    background-color: #b8eeec;
+    width: 95%;
+    height: 125%;
+}
+
+.cardThree {
+    border: 0;
+    background-color: #ededb8;
+    width: 95%;
+    height: 125%;
+}
+
+.cardFour {
+    border: 0;
+    background-color: #C3D9FF;
+    width: 95%;
+    height: 125%;
+}
+
+.sliderContainer {
+    background-color: #f0f7fc;
+    /* padding-top: 80px; */
+    width: 100%;
+}
+
+.slide {
+    padding: 50px;
+}
+
+.bannerImg {
+    width: 500px;
+}
+
+.slideRow {
+    height: 500px;
+}
+/* .slick-prev, .slich-next{
         z-index: 10;
         display: block !important;
     } */
-    .addBtn{
-        width: 50px;
-        height: 50px;
-        padding: 0;
-        font-size: 30px;
-    }
-    .addBtn:hover{
-        background-color: #003153;
-        color: white;
-    }
-    .discount{
-        background-color: #003153;
-        color: white;
-        width: 20%;
-        height: 30px;
-        font-size: 13px;
-        text-align: center;
-    }
-    .product-img{
-        width: 300px;
-        height: 200px;
-    }
-    .product-cards{
-        width: 450px;
-        height: 500px;
-    }
-    .ratings{
-        display: flex;
-        gap: 10px;
-    }
-    .bigDiscContainer,.bestSalesContainer{
-        background-color: #f0f7fc;
-        margin-top: 5%;   
-        padding: 70px;
-        width: 106%;
-    }
-    .newArrivalsContainer{
-        margin-top: 2%;   
-        padding: 70px;
-    }
-    .bestSalesContainer{
-        background-color: #f0f7fc;
-        margin-top: 2%;   
-        padding: 70px;
-    }
-    .discTitle{
-        font-size: 40px
-    }
-    .heart{
-        opacity: 0;
-    }
-    .product-cards:hover .heart{
-        opacity: 1;
-    }
-    .rounded-pill{
-        width: 28% !important;
-    }
-    .bigDiscCards{
-        column-gap: 151px;
-        row-gap: 10px;
-        margin-right: 180px;
+.addBtn {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    font-size: 30px;
+}
+
+.addBtn:hover {
+    background-color: #003153;
+    color: white;
+}
+
+.discount {
+    background-color: #003153;
+    color: white;
+    width: 20%;
+    height: 30px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.product-img {
+    width: 300px;
+    height: 200px;
+}
+
+.product-cards {
+    width: 300px;
+    height: 500px;
+}
+
+.ratings {
+    display: flex;
+    gap: 10px;
+}
+
+.bigDiscContainer,
+.bestSalesContainer {
+    background-color: #f0f7fc;
+    margin-top: 5%;
+    padding: 70px;
+}
+
+.newArrivalsContainer {
+    margin-top: 2%;
+    padding: 70px;
+}
+
+.bestSalesContainer {
+    background-color: #f0f7fc;
+    margin-top: 2%;
+    padding: 70px;
+}
+
+.discTitle {
+    font-size: 40px
+}
+
+.heart {
+    opacity: 0;
+}
+.rounded-pill{
+    width: 70px;
+}
+.product-cards:hover .heart {
+    opacity: 1;
+}
+@media (max-width:1440px){
+    .bannerTitle {
+        font-size: 50px;
     }
     
-    .newArrivalsCards{
-        column-gap: 151px;
-        row-gap: 10px;
-        margin-right: 180px;
-    }
-    .bestSalesCards{
-        column-gap: 151px;
-        row-gap: 10px;
-        margin-right: 180px;
-    }
-}
-@media (max-width:768px){
-    .card-grid{
-        display: grid;
-        grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-        gap: 0px;
-        row-gap: 55px;
-        padding: 15px;
-    }
-    .cardOne{
-        border: 0;
-        background-color: #fff1e6;
-        width: 95%;
-        height: 125%;
-    }
-    .cardTwo{
-        border: 0;
-        background-color: #b8eeec;
-        width: 95%;
-        height: 125%;
-    }
-    .cardThree{
-        border: 0;
-        background-color: #ededb8;
-        width: 95%;
-        height: 125%;
-    }
-    .cardFour{
-        border: 0;
-        background-color: #C3D9FF;
-        width: 95%;
-        height: 125%;
-    }
-    .sliderContainer{
-        background-color: #f0f7fc;
-        padding-top: 80px;
-    }
-    .slide{
-        margin: 30px;
-    }
-    .bannerTitle{
-        font-size: 40px;
-    }
-    .bannerDesc{
+    .bannerDesc {
         font-size: 20px;
     }
-    .bannerImg{
-        width: 400px;
-    }
-    /* .slick-prev, .slich-next{
-        z-index: 10;
-        display: block !important;
-    } */
-    .addBtn{
-        width: 50px;
-        height: 50px;
-        padding: 0;
-        font-size: 30px;
-    }
-    .addBtn:hover{
-        background-color: #003153;
-        color: white;
-    }
-    .discount{
-        background-color: #003153;
-        color: white;
-        width: 35%;
-        height: 30px;
-        font-size: 13px;
-        text-align: center;
-    }
-    .product-img{
-        width: 300px;
-        height: 200px;
-    }
-    .product-cards{
-        position: relative;
-        width: 475%;
-        height: auto;
-    }
-    .ratings{
-        display: flex;
-        gap: 10px;
-    }
-    .bigDiscContainer,.bestSalesContainer{
-        background-color: #f0f7fc;
-        margin-top: 5%;   
-        padding: 70px;
-    }
-    .newArrivalsContainer{
-        margin-top: 2%;   
-        padding: 70px;
-    }
-    .bestSalesContainer{
-        background-color: #f0f7fc;
-        margin-top: 2%;   
-        padding: 70px;
-    }
-    .discTitle{
-        font-size: 40px
-    }
-    .heart{
-        opacity: 0;
-    }
-    .product-cards:hover .heart{
-        opacity: 1;
-    }
-    .bigDiscCards{
-        column-gap: 177px;
-        row-gap: 10px;
-        margin-right: 180px;
-    }
-    .newArrivalsCards{
-        column-gap: 177px;
-        row-gap: 10px;
-        margin-right: 180px;
-    }
-    .bestSalesCards{
-        column-gap: 177px;
-        row-gap: 10px;
-        margin-right: 180px;
-    }
 }
-@media (max-width:576px){
-    .card-grid{
-        display: grid;
-        grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
-        gap: 10px;
-        row-gap: 58px;
-        padding: 10px;
-        transform: translateX(150px);
+@media (max-width:1200px){
+    .bannerTitle {
+        font-size: 40px;
     }
-    .cardOne{
-        border: 0;
-        background-color: #fff1e6;
-        width: 95%;
-        height: 125%;
-    }
-    .cardTwo{
-        border: 0;
-        background-color: #b8eeec;
-        width: 95%;
-        height: 125%;
-    }
-    .cardThree{
-        border: 0;
-        background-color: #ededb8;
-        width: 95%;
-        height: 125%;
-    }
-    .cardFour{
-        border: 0;
-        background-color: #C3D9FF;
-        width: 95%;
-        height: 125%;
-    }
-    .sliderContainer{
-        background-color: #f0f7fc;
-        padding-top: 80px;
-        width: 152%;
-    }
-    .slide{
-        margin: 0px;
-        padding-top: 50px;
-    }
-    .slideRow{
-        padding: 40px;
-    }
-    .bannerTitle{
-        font-size: 25px;
-    }
-    .bannerDesc{
+    
+    .bannerDesc {
         font-size: 20px;
     }
-    .bannerImg{
-        width: 400px;
-    }
-    /* .slick-prev, .slich-next{
-        z-index: 10;
-        display: block !important;
-    } */
-    .addBtn{
-        width: 50px;
-        height: 50px;
-        padding: 0;
-        font-size: 30px;
-    }
-    .addBtn:hover{
-        background-color: #003153;
-        color: white;
-    }
-    .discount{
-        background-color: #003153;
-        color: white;
-        width: 35%;
-        height: 30px;
-        font-size: 13px;
-        text-align: center;
-    }
-    .product-img{
-        width: 300px;
-        height: 200px;
-    }
-    .product-cards{
-        position: relative;
-        width: 323%;
-        height: auto;
-    }
-    .ratings{
-        display: flex;
-        gap: 10px;
-    }
-    .bigDiscContainer,.bestSalesContainer{
-        background-color: #f0f7fc;
-        margin-top: 5%;   
-        padding: 70px;
-        width: 152%;
-    }
-    .newArrivalsContainer{
-        margin-top: 2%;   
-        padding: 70px;
-    }
-    .bestSalesContainer{
-        background-color: #f0f7fc;
-        margin-top: 2%;   
-        padding: 70px;
-    }
-    .discTitle{
-        font-size: 40px
-    }
-    .heart{
-        opacity: 0;
-    }
-    .product-cards:hover .heart{
-        opacity: 1;
-    }
-    .bigDiscCards{
-        column-gap: 177px;
-        row-gap: 10px;
-        margin-right: 180px;
-        width: 130px;
-        transform: translateX(190px);
-    }
-    .newArrivalsCards{
-        column-gap: 177px;
-        row-gap: 10px;
-        margin-right: 180px;
-        width: 130px;
-        transform: translateX(190px);
-    }
-    .bestSalesCards{
-        column-gap: 177px;
-        row-gap: 10px;
-        margin-right: 180px;
-        width: 130px;
-        transform: translateX(190px);
-    }
-    .newTitle{
-        transform: translateX(250px);
+}
+@media (max-width:1025px){
+    .bannerTitle {
         font-size: 40px;
     }
-    .bestSalesTitle{
-        transform: translateX(5px);
-        font-size: 40px;
+    
+    .bannerDesc {
+        font-size: 20px;
+    }
+}
+@media (max-width:765px){
+    .bannerTitle {
+        font-size: 35px;
+    }
+    
+    .bannerDesc {
+        font-size: 15px;
     }
 }
 @media (max-width:428px){
-    .card-grid{
-        display: grid;
-        grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
-        gap: 10px;
-        row-gap: 58px;
-        padding: 10px;
-        /* margin-right: 40px; */
-        transform: translateX(100px);
-    }
-    .cardOne{
-        border: 0;
-        background-color: #fff1e6;
-        width: 95%;
-        height: 125%;
-    }
-    .cardTwo{
-        border: 0;
-        background-color: #b8eeec;
-        width: 95%;
-        height: 125%;
-    }
-    .cardThree{
-        border: 0;
-        background-color: #ededb8;
-        width: 95%;
-        height: 125%;
-    }
-    .cardFour{
-        border: 0;
-        background-color: #C3D9FF;
-        width: 95%;
-        height: 125%;
-    }
-    .sliderContainer{
-        background-color: #f0f7fc;
-        padding-top: 80px;
-        width: 148%;
-    }
-    .slide{
-        margin: 0px;
-        padding-top: 50px;
-    }
-    .slideRow{
-        padding: 40px;
-    }
-    .bannerTitle{
-        font-size: 25px;
-    }
-    .bannerDesc{
-        font-size: 20px;
-        display: none;
-    }
-    .bannerImg{
-        width: 400px;
-    }
-    /* .slick-prev, .slich-next{
-        z-index: 10;
-        display: block !important;
-    } */
-    .addBtn{
-        width: 50px;
-        height: 50px;
-        padding: 0;
+    .bannerTitle {
         font-size: 30px;
     }
-    .addBtn:hover{
-        background-color: #003153;
-        color: white;
-    }
-    .discount{
-        background-color: #003153;
-        color: white;
-        width: 35%;
-        height: 30px;
-        font-size: 13px;
-        text-align: center;
-    }
-    .product-img{
-        width: 300px;
-        height: 200px;
-    }
-    .product-cards{
-        position: relative;
-        width: 323%;
-        height: auto;
-    }
-    .ratings{
-        display: flex;
-        gap: 10px;
-    }
-    .bigDiscContainer,.bestSalesContainer{
-        background-color: #f0f7fc;
-        margin-top: 5%;   
-        padding: 70px;
-    }
-    .newArrivalsContainer{
-        margin-top: 2%;   
-        padding: 70px;
-    }
-    .bestSalesContainer{
-        background-color: #f0f7fc;
-        margin-top: 2%;   
-        padding: 70px;
-    }
-    .discTitle{
-        font-size: 40px
-    }
-    .heart{
-        opacity: 0;
-    }
-    .product-cards:hover .heart{
-        opacity: 1;
-    }
-    .bigDiscCards{
-        column-gap: 177px;
-        row-gap: 10px;
-        /* margin-right: 180px; */
-        transform: translateX(80px);
-    }
-    .newArrivalsCards{
-        column-gap: 177px;
-        row-gap: 10px;
-        /* margin-right: 180px; */
-        transform: translateX(80px);
-    }
-    .bestSalesCards{
-        column-gap: 177px;
-        row-gap: 10px;
-        /* margin-right: 180px; */
-        transform: translateX(80px);
-    }
-    .newTitle{
-        transform: translateX(140px);
+    
+    .bannerDesc {
+        font-size: 15px;
     }
 }

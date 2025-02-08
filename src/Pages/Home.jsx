@@ -45,13 +45,13 @@ const Home = () => {
                         SliderData.map((banner) => (
                             <div className='slide border border-0' key={banner.id}>
                                 <div className="row align-items-center slideRow">
-                                    <div className="col">
+                                    <div className="col-md-6 col-lg-6 col-xxl-6">
                                         <h1 className='bannerTitle'>{banner.title}</h1>
                                         <p className='bannerDesc text-wrap'>{banner.desc}</p>
                                         <button className='border border-0 p-1'>Visit Collections</button>
                                     </div>
-                                    <div className="col">
-                                        <img src={banner.cover} alt={banner.title} className='bannerImg'/>
+                                    <div className="col-md-6 col-lg-6 col-xxl-6">
+                                        <img src={banner.cover} alt={banner.title} className='img-fluid bannerImg' />
                                     </div>
                                 </div>
                             </div>
@@ -71,8 +71,8 @@ export const DummyCards = () => {
     return (
         <>
             <div className="container mt-5 mb-5 bg-white p-3">
-                <div className="card-grid">
-                    <div className="card cardOne" >
+                <div className="row card-grid">
+                    <div className="col-md-6 col-lg-4 col-xxl-4 card cardOne" >
                         <FontAwesomeIcon className="mt-5 fs-5" icon={faCar} />
                         <div className="card-body text-center">
                             <h6 className='card-title fw-bold'>Free Shipping</h6>
@@ -119,12 +119,12 @@ export const DiscountedProdcts = () => {
     return (
         <>
             <div className="bigDiscContainer">
-                <h2 className='text-center discTitle'>Big Discount</h2>
-                <div className="row d-flex justify-content-center mt-5 mb-5 bigDiscCards" >
+                <div className="row d-flex justify-content-center mb-5 bigDiscCards gx-4 gy-4" >
+                    <h2 className='text-center discTitle mb-5'>Big Discount</h2>
                     {
                         discountProducts && discountProducts.length > 0 && discountProducts.map((product) => (
-                            <div className="col-lg-3 col-md-2 m-2" key={product.id}>
-                                <div className="card p-4 border border-0 bg-white shadow product-cards" width="200%" height="auto">
+                            <div className="col-md-6 col-lg-4 col-xxl-4 w-auto" key={product.id}>
+                                <div className="card p-4 border border-0 bg-white shadow product-cards">
                                     <Link className='text-decoration-none' to={`/product-details/${product.id}`} >
                                         <div className='d-flex justify-content-between'>
                                             <p className='border border-0 rounded-pill p-1 discount'>{product.discount}% Off</p>
@@ -172,7 +172,7 @@ export const NewArrivals = () => {
     const { count, updateCount } = useContext(context)
     return (
         <>
-        <ToastContainer
+            <ToastContainer
                 position="top-right"
                 autoClose={5000}
                 hideProgressBar={false}
@@ -184,14 +184,14 @@ export const NewArrivals = () => {
                 pauseOnHover
                 theme="light"
                 transition={Bounce}
-              />
+            />
             <div className="newArrivalsContainer bg-white">
-                <h2 className='newTitle text-center mb-5'>New Arrivals</h2>
-                <div className="row d-flex justify-content-center  newArrivalsCards" >
+                <div className="row d-flex justify-content-center mb-5 gx-4 gy-4 newArrivalsCards" >
+                    <h2 className='newTitle text-center mb-5'>New Arrivals</h2>
                     {
                         category && category.length > 0 && category.map((product) => (
-                            <div className="col-lg-3 col-md-2 m-2" key={product.id}>
-                                <div className="card p-4 border border-0 bg-white shadow product-cards" width="200%">
+                            <div className="col-md-6 col-lg-4 col-xxl-4 w-auto" key={product.id}>
+                                <div className="card p-4 border border-0 bg-white shadow product-cards">
                                     <Link className='text-decoration-none' to={`/product-details/${product.id}`}>
                                         <div>
                                             <AiOutlineHeart className="whishlist text-black" size={20} />
@@ -237,11 +237,11 @@ export const BestSales = () => {
     return (
         <>
             <div className="bestSalesContainer">
+                <div className="row d-flex justify-content-center mb-5 gx-4 gy-4 bestSalesCards" >
                 <h2 className='text-center bestSalesTitle'>Best Sales</h2>
-                <div className="row d-flex justify-content-center mt-5 mb-5 bestSalesCards" >
                     {
                         category && category.length > 0 && category.map((product) => (
-                            <div className="col-lg-3 col-md-2 m-2" key={product.id}>
+                            <div className="col-md-6 col-lg-4 col-xxl-4 w-auto" key={product.id}>
                                 <div className="card p-4 border border-0 bg-white shadow product-cards">
                                     <Link className='text-decoration-none' to={`/product-details/${product.id}`}>
                                         <div>

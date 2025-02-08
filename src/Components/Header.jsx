@@ -9,15 +9,15 @@ const Header = () => {
     const {count} = useContext(context)
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-white px-4 py-3 shadow header">
-                <div className="container-fluid ms-4">
-                    <Link className="navbar-brand fs-1" to="/"><FontAwesomeIcon icon={faBagShopping} />
+            <nav className="navbar navbar-expand-lg bg-white p-3 shadow header">
+                <div className="container-fluid">
+                    <Link className="navbar-brand fs-1 mx-3" to="/"><FontAwesomeIcon icon={faBagShopping} />
                         Mart</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse justify-content-end me-5 " id="navbarNav">
-                        <ul className="navbar-nav fs-5 gap-2 text-black">
+                        <ul className="navbar-nav fs-5 gap-2 mb-2 mb-lg-0 text-black">
                             <li className="nav-item">
                                 <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                             </li>

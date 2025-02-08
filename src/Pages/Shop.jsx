@@ -14,7 +14,7 @@ const Shop = () => {
   const [dropdownName, updateDropDown] = useState('Filter By Category')
   const [filteredData, updateFilteredData] = useState(products)
   const [searchText, updateSearchText] = useState('')
-  const [message, updateMessage] = useState('')
+  const [npProdMessage, updateMessage] = useState('')
   const filterProducts = (category, searchText = '') => {
     updateDropDown(category)
     if (!category && !searchText) {
@@ -31,7 +31,7 @@ const Shop = () => {
   }
   useEffect(() => {
     if (filteredData.length === 0) {
-      updateMessage("Product has been added to cart!")
+      updateMessage("No Product Found")
     }
     else {
       updateMessage("")
@@ -78,7 +78,7 @@ const Shop = () => {
       </div>
       <div className="container pt-5">
         <div className="row">
-          <div className="col">
+          <div className="col-md-6 col-lg-6 col-xxl-6 mb-3">
             <div className="dropdown position-relative">
               <Link className="btn btn-secondary filterCat dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 {dropdownName}
@@ -105,7 +105,7 @@ const Shop = () => {
           </div>
           <div className="col">
             <form className="d-flex" role="search position-relative">
-              <input className="form-control me-2 rounded-pill" type="search" value={searchText} onChange={(e) => {
+              <input className="form-control me-2 rounded-pill" id="roundedPill" type="search" value={searchText} onChange={(e) => {
                 updateSearchText(e.target.value)
                 filterProducts(dropdownName, e.target.value)
               }} placeholder="Search" aria-label="Search" />
@@ -115,13 +115,13 @@ const Shop = () => {
         </div>
       </div>
       <div className='noProdMsg d-flex justify-content-around mt-5'>
-        {message && <h2 className='noProductFound'>{message}</h2>}
+        {npProdMessage && <h2 className='noProductFound'>{npProdMessage}</h2>}
       </div>
-      <div className="container productsContainer">
-        <div className="row d-flex justify-content-center mt-5 mb-5 list">
+      <div className="productsContainer">
+        <div className="row d-flex justify-content-center mb-5 gx-4 gy-4">
           {
             filteredData && filteredData.length > 0 && filteredData.map((product) => (
-              <div className="col-lg-3 col-md-2 m-2" key={product.id}>
+              <div className="col-md-6 col-lg-4 col-xxl-4 w-auto" key={product.id}>
                 <div className="card p-4 border border-0 bg-white shadow product-cards">
                   <Link className='text-decoration-none' to={`/product-details/${product.id}`}>
                     <div>
