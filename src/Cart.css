@@ -16,6 +16,6 @@
 .cartContainer{
     padding-top: 100px;
 }
-.card-title{
+.card-title,.price{
     color: #003153;
 }

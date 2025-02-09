@@ -36,25 +36,34 @@
 
 .sliderContainer {
     background-color: #f0f7fc;
-    /* padding-top: 80px; */
+    position: relative;
+    margin: auto;
+    overflow: hidden;
     width: 100%;
+    height: auto;
 }
-
+.slick-prev, .slick-next{
+    z-index: 10;
+}
+.slick-prev{
+    top: 35%;
+    left: 10px;
+}
+.slick-next{
+    top: 35%;
+    right: 10px;
+}
 .slide {
-    padding: 50px;
+    padding: 110px;
 }
 
-.bannerImg {
+/* .bannerImg {
     width: 500px;
-}
+} */
 
-.slideRow {
+/* .slideRow {
     height: 500px;
-}
-/* .slick-prev, .slich-next{
-        z-index: 10;
-        display: block !important;
-    } */
+} */
 .addBtn {
     width: 50px;
     height: 50px;

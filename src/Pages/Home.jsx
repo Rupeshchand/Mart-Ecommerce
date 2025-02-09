@@ -45,13 +45,13 @@ const Home = () => {
                         SliderData.map((banner) => (
                             <div className='slide border border-0' key={banner.id}>
                                 <div className="row align-items-center slideRow">
-                                    <div className="col-md-6 col-lg-6 col-xxl-6">
+                                    <div className="col-md-6">
                                         <h1 className='bannerTitle'>{banner.title}</h1>
                                         <p className='bannerDesc text-wrap'>{banner.desc}</p>
                                         <button className='border border-0 p-1'>Visit Collections</button>
                                     </div>
                                     <div className="col-md-6 col-lg-6 col-xxl-6">
-                                        <img src={banner.cover} alt={banner.title} className='img-fluid bannerImg' />
+                                        <img src={banner.cover} alt={banner.title} className='img-fluid bannerImg'/>
                                     </div>
                                 </div>
                             </div>
@@ -120,7 +120,7 @@ export const DiscountedProdcts = () => {
         <>
             <div className="bigDiscContainer">
                 <div className="row d-flex justify-content-center mb-5 bigDiscCards gx-4 gy-4" >
-                    <h2 className='text-center discTitle mb-5'>Big Discount</h2>
+                    <h2 className='text-center fs-1 discTitle mb-5'>Big Discount</h2>
                     {
                         discountProducts && discountProducts.length > 0 && discountProducts.map((product) => (
                             <div className="col-md-6 col-lg-4 col-xxl-4 w-auto" key={product.id}>
@@ -187,7 +187,7 @@ export const NewArrivals = () => {
             />
             <div className="newArrivalsContainer bg-white">
                 <div className="row d-flex justify-content-center mb-5 gx-4 gy-4 newArrivalsCards" >
-                    <h2 className='newTitle text-center mb-5'>New Arrivals</h2>
+                    <h2 className='newTitle fs-1 text-center mb-5'>New Arrivals</h2>
                     {
                         category && category.length > 0 && category.map((product) => (
                             <div className="col-md-6 col-lg-4 col-xxl-4 w-auto" key={product.id}>
@@ -238,7 +238,7 @@ export const BestSales = () => {
         <>
             <div className="bestSalesContainer">
                 <div className="row d-flex justify-content-center mb-5 gx-4 gy-4 bestSalesCards" >
-                <h2 className='text-center bestSalesTitle'>Best Sales</h2>
+                <h2 className='text-center fs-1 bestSalesTitle mb-5'>Best Sales</h2>
                     {
                         category && category.length > 0 && category.map((product) => (
                             <div className="col-md-6 col-lg-4 col-xxl-4 w-auto" key={product.id}>
