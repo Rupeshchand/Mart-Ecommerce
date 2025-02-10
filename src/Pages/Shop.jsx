@@ -19,11 +19,6 @@ const Shop = () => {
   const [npProdMessage, updateMessage] = useState('')
   const filterProducts = (category, searchText = '') => {
     updateDropDown(category)
-    // if (!category && !searchText) {
-    //   updateFilteredData(products)
-    //   console.log(products)
-    //   return
-    // }
     let res = products.filter((product) => {
       const productMatch = product.category.toLowerCase() === category.toLowerCase()
       const searchMatch = searchText ? product.category.toLowerCase().includes(searchText.toLowerCase()) : false
@@ -87,7 +82,6 @@ const Shop = () => {
               <Link className="btn btn-secondary filterCat dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 {dropdownName}
               </Link>
-              {/* <div className='vertical-line text-white'></div> */}
               <ul className="dropdown-menu">
                 <li><Link className="dropdown-item" to="#" onClick={() => {
                   filterProducts('Sofa', searchText)

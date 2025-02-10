@@ -4,7 +4,6 @@ import React, { useState, useEffect, useContext } from 'react'
 import '../Cart.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { add, remove } from '../Redux/CartSlice'
-import { context } from '../Components/ContextProvider'
 const Cart = () => {
     const cartData = useSelector(state => state.cart)
     console.log(cartData)
@@ -64,24 +63,8 @@ const Cart = () => {
                                                 handleRemove(product)
                                             }}><FontAwesomeIcon icon={faClose} /></button>
                                             <div className='addMinusBtns'>
-                                                <button className='btn border me-2' onClick={() => { handleAdd(product) }}
-                                                // onClick={() => {hand
-                                                //     // if(!quantity[product.id]){
-                                                //     //     updateCount(count++)
-                                                //     // }
-                                                //     // updateQuantity({
-                                                //     //     ...quantity,
-                                                //     //     [product.id] : (quantity[product.id] || 1)+1
-                                                //     // })
-                                                // }}
-                                                >+</button>
-                                                <button className='btn border' onClick={() => { handleRemove(product) }}
-                                                // updateQuantity(quantity - 1)
-                                                // updateCount(count - 1)
-                                                // if (quantity === 1) {
-                                                //     handleRemove(product)
-                                                // }
-                                                >-</button>
+                                                <button className='btn border me-2' onClick={() => { handleAdd(product) }}>+</button>
+                                                <button className='btn border' onClick={() => { handleRemove(product) }}>-</button>
                                             </div>
                                         </div>
                                     </div>

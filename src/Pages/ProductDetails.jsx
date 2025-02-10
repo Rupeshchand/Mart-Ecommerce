@@ -109,8 +109,7 @@ const ProductDetails = () => {
                     </div>
                 </div>
             </div >
-            {/* style={{ marginLeft: "75px", width: "fit-content", paddingTop: "25px" }} */}
-            <div style={{ marginLeft: "34px", marginTop: "20px" }}>
+            <div style={{ marginLeft: "34px", marginTop: "20px",width:"fit-content" }}>
                 <button className="btn" onClick={() => { setDescriptionColor('black') }}><Link style={{ color: descriptionColor }} className="text-decoration-none" to="description">Description</Link></button>
                 <button className="btn" onClick={() => { setReviewsColor("black") }} onMouseLeave={() => { setReviewsColor('gray') }}><Link style={{ color: reviewsColor }} className="text-decoration-none text-secondary" to="reviews">Reviews (2)</Link></button>
             </div>
@@ -157,8 +156,8 @@ const ProductDetails = () => {
 export const Description = () => {
     return (
         <>
-            <div className='ms-5 row'>
-                <p className='text-wrap col-md-12 col-lg-12 col-xxl-12'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio nostrum accusantium iste, voluptas cumque provident! Consequatur officiis animi rem tempore voluptate cumque hic similique aperiam ut consectetur distinctio repudiandae quia quam quos, quas illo, iusto, necessitatibus odio veniam exercitationem quis voluptatibus debitis laboriosam! Esse debitis obcaecati blanditiis at impedit quibusdam!"
+            <div className="ms-5 row" style={{width:"90%"}}>
+                <p className='text-wrap col-md-12 col-lg-12 col-xxl-12 text'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio nostrum accusantium iste, voluptas cumque provident! Consequatur officiis animi rem tempore voluptate cumque hic similique aperiam ut consectetur distinctio repudiandae quia quam quos, quas illo, iusto, necessitatibus odio veniam exercitationem quis voluptatibus debitis laboriosam! Esse debitis obcaecati blanditiis at impedit quibusdam!"
                 </p>
             </div>
         </>

@@ -9,7 +9,6 @@ import { useSelector } from 'react-redux';
 const Header = () => {
     const cartData =  useSelector(state => state.cart)
     const totalItems = cartData.reduce((total,item) => total+item.quantity,0)
-    // const {count} = useContext(context)
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-white p-3 shadow header">
@@ -49,4 +48,3 @@ const Header = () => {
 }
 
 export default Header
-// export {context}
