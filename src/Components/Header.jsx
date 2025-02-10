@@ -4,9 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBagShopping, faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons';
 import '../Header.css'
 import { context } from './ContextProvider';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
-    const {count} = useContext(context)
+    const cartData =  useSelector(state => state.cart)
+    const totalItems = cartData.reduce((total,item) => total+item.quantity,0)
+    // const {count} = useContext(context)
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-white p-3 shadow header">
@@ -35,7 +38,7 @@ const Header = () => {
                             <li className="nav-item position-relative">
                                 <Link className="nav-link text-black" to="/cart">
                                 <FontAwesomeIcon icon={faCartShopping} />
-                                <span className='position-absolute top-0 start-50  badge count border border-0 rounded-circle text-white'>{count}</span></Link>
+                                <span className='position-absolute top-0 start-50 count border border-0 rounded-circle text-white'>{totalItems}</span></Link>
                             </li>
                         </ul>
                     </div>

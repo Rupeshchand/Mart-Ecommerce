@@ -13,14 +13,16 @@ import { context } from '../Components/ContextProvider'
 const Shop = () => {
   const [dropdownName, updateDropDown] = useState('Filter By Category')
   const [filteredData, updateFilteredData] = useState(products)
+  console.log(filteredData)
   const [searchText, updateSearchText] = useState('')
   const [npProdMessage, updateMessage] = useState('')
   const filterProducts = (category, searchText = '') => {
     updateDropDown(category)
-    if (!category && !searchText) {
-      updateFilteredData(products)
-      return
-    }
+    // if (!category && !searchText) {
+    //   updateFilteredData(products)
+    //   console.log(products)
+    //   return
+    // }
     let res = products.filter((product) => {
       const productMatch = product.category.toLowerCase() === category.toLowerCase()
       const searchMatch = searchText ? product.category.toLowerCase().includes(searchText.toLowerCase()) : false

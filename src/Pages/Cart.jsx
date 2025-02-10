@@ -3,12 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState, useEffect, useContext } from 'react'
 import '../Cart.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { remove } from '../Redux/CartSlice'
+import { add, remove } from '../Redux/CartSlice'
 import { context } from '../Components/ContextProvider'
-import { products } from '../Products'
 const Cart = () => {
-    const [quantity, updateQuantity] = useState({})
     const cartData = useSelector(state => state.cart)
+    console.log(cartData)
     const [noItemMsg, setNoItemMsg] = useState('')
     const dispatch = useDispatch()
     useEffect(() => {
@@ -17,13 +16,26 @@ const Cart = () => {
         }
     }, [cartData])
     let { count, updateCount } = useContext(context)
-    const handleRemove = (product) => {
-        dispatch(remove(product))
-        updateCount(count - 1)
+    const handleAdd = (product) => {
+        dispatch(add({
+            id: product.id,
+            quantity: 1,
+            productName: product.productName,
+            price: product.price,
+            imgUrl: product.imgUrl
+        }))
+
     }
-    const totalPrice = cartData.reduce((total,product) =>{
-        return total + product.price * (quantity[product.id] || 1)
-    },0)
+    const handleRemove = (product) => {
+        const existingItem = cartData.find((item) => item.id === product.id)
+        if(existingItem){
+            dispatch(remove(product))
+        }
+        dispatch(remove({ id: product.id }))
+    }
+    const totalPrice = cartData.reduce((total, product) => {
+        return total + product.price * (product.quantity || 1)
+    }, 0)
     return (
         <>
             <div className="container cartContainer mt-4">
@@ -33,16 +45,16 @@ const Cart = () => {
                             cartData && cartData.length > 0 ? (cartData.map((product) => (
                                 <div className="card md-3 border-0 shadow mb-4 p-3" key={product.id}>
                                     <div className="row align-items-center">
-                                         <div className="col">
+                                        <div className="col">
                                             <img src={product.imgUrl} alt={product.productName} className='img rounded-start' width={150} />
                                         </div>
                                         <div className="col-md-8 w-auto">
                                             <div className="card-body">
                                                 <h5 className='card-title'>{product.productName}</h5>
                                                 <p className='card-text'>
-                                                    <p className='text-muted'>
-                                                        $ {product.price} * {quantity[product.id] || 1} <span className='ms-3 fw-bold' style={{color:"#003153"}}>$ {product.price * quantity[product.id] || 1}</span>
-                                                    </p>
+                                                    <span className='text-muted'>
+                                                        $ {product.price} * {product.quantity || 1} <span className='ms-3 fw-bold' style={{ color: "#003153" }}>$ {product.price * product.quantity || 1}</span>
+                                                    </span>
                                                 </p>
 
                                             </div>
@@ -52,31 +64,24 @@ const Cart = () => {
                                                 handleRemove(product)
                                             }}><FontAwesomeIcon icon={faClose} /></button>
                                             <div className='addMinusBtns'>
-                                                <button className='btn border me-2' onClick={() => {
-                                                    if(!quantity[product.id]){
-                                                        updateCount(count++)
-                                                    }
-                                                    updateQuantity({
-                                                        ...quantity,
-                                                        [product.id] : (quantity[product.id] || 1)+1
-                                                    })
-                                                }}>+</button>
-                                                <button className='btn border' onClick={() => {
-                                                    if((quantity[product.id] || 1)>1){
-                                                        updateQuantity({
-                                                            ...quantity,
-                                                            [product.id] : quantity[product.id] -1
-                                                        })
-                                                    }
-                                                    else{
-                                                        handleRemove(product)
-                                                    }
-                                                    // updateQuantity(quantity - 1)
-                                                    // updateCount(count - 1)
-                                                    // if (quantity === 1) {
-                                                    //     handleRemove(product)
-                                                    // }
-                                                }}>-</button>
+                                                <button className='btn border me-2' onClick={() => { handleAdd(product) }}
+                                                // onClick={() => {hand
+                                                //     // if(!quantity[product.id]){
+                                                //     //     updateCount(count++)
+                                                //     // }
+                                                //     // updateQuantity({
+                                                //     //     ...quantity,
+                                                //     //     [product.id] : (quantity[product.id] || 1)+1
+                                                //     // })
+                                                // }}
+                                                >+</button>
+                                                <button className='btn border' onClick={() => { handleRemove(product) }}
+                                                // updateQuantity(quantity - 1)
+                                                // updateCount(count - 1)
+                                                // if (quantity === 1) {
+                                                //     handleRemove(product)
+                                                // }
+                                                >-</button>
                                             </div>
                                         </div>
                                     </div>

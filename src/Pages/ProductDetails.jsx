@@ -44,7 +44,13 @@ const ProductDetails = () => {
     }, [id, products, product.category])
     const { count, updateCount } = useContext(context)
     const handleAdd = (product) => {
-        dispatch(add(product))
+        dispatch(add({
+            id: product.id,
+            quantity: 1,
+            productName: product.productName,
+            price: product.price,
+            imgUrl: product.imgUrl
+        }))
         setAdded(true)
         updateCount(count + 1)
         notify()
@@ -101,9 +107,9 @@ const ProductDetails = () => {
                 </div>
             </div >
             {/* style={{ marginLeft: "75px", width: "fit-content", paddingTop: "25px" }} */}
-            <div style={{marginLeft:"34px",marginTop:"20px"}}>
-                <button className="btn" onClick={()=>{setDescriptionColor('black')}}><Link style={{ color: descriptionColor }} className="text-decoration-none" to="description">Description</Link></button>
-                <button className="btn" onClick={() => { setReviewsColor("black") }} onMouseLeave={()=>{setReviewsColor('gray')}}><Link style={{ color: reviewsColor }} className="text-decoration-none text-secondary" to="reviews">Reviews (2)</Link></button>
+            <div style={{ marginLeft: "34px", marginTop: "20px" }}>
+                <button className="btn" onClick={() => { setDescriptionColor('black') }}><Link style={{ color: descriptionColor }} className="text-decoration-none" to="description">Description</Link></button>
+                <button className="btn" onClick={() => { setReviewsColor("black") }} onMouseLeave={() => { setReviewsColor('gray') }}><Link style={{ color: reviewsColor }} className="text-decoration-none text-secondary" to="reviews">Reviews (2)</Link></button>
             </div>
             <Outlet />
             <div className="container">

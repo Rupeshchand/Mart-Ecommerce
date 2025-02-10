@@ -48,7 +48,7 @@ const Home = () => {
                                     <div className="col-md-6">
                                         <h1 className='bannerTitle'>{banner.title}</h1>
                                         <p className='bannerDesc text-wrap'>{banner.desc}</p>
-                                        <button className='border border-0 p-1'>Visit Collections</button>
+                                        <Link to={"/shop"}><button className='border border-0 p-1'>Visit Collections</button></Link>
                                     </div>
                                     <div className="col-md-6 col-lg-6 col-xxl-6">
                                         <img src={banner.cover} alt={banner.title} className='img-fluid bannerImg'/>
