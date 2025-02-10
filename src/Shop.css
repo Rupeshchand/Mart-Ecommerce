@@ -60,11 +60,21 @@
 }
 
 .shopContainer {
-    padding-top: 70px;
-    padding-bottom: 50px;
+    padding: 0;
 }
-
+/* body{
+    overflow-x: hidden;
+} */
+.shopContainer{
+    margin-top: 6rem;
+    
+}
+h1{
+    top:30%;
+    left:45%
+}
 .productsContainer {
     margin: 0;
+    overflow-x: hidden;
     /* transform: translateX(100px); */
 }

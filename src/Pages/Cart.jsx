@@ -15,7 +15,7 @@ const Cart = () => {
             setNoItemMsg("No Items are added in cart")
         }
     }, [cartData])
-    let { count, updateCount } = useContext(context)
+
     const handleAdd = (product) => {
         dispatch(add({
             id: product.id,
@@ -38,12 +38,12 @@ const Cart = () => {
     }, 0)
     return (
         <>
-            <div className="container cartContainer mt-4">
+            <div className="container cartContainer mt-5">
                 <div className="row">
                     <div className="col-md-8 col-lg-8 col-xxl-8">
                         {
                             cartData && cartData.length > 0 ? (cartData.map((product) => (
-                                <div className="card md-3 border-0 shadow mb-4 p-3" key={product.id}>
+                                <div className="card md-3 border-0 shadow mb-4 p-4" key={product.id}>
                                     <div className="row align-items-center">
                                         <div className="col">
                                             <img src={product.imgUrl} alt={product.productName} className='img rounded-start' width={150} />

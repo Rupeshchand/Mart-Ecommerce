@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux'
 import { add } from '../Redux/CartSlice'
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 import { context } from '../Components/ContextProvider'
+import banner from "../Images/banner.jpg"
 const Shop = () => {
   const [dropdownName, updateDropDown] = useState('Filter By Category')
   const [filteredData, updateFilteredData] = useState(products)
@@ -75,8 +76,9 @@ const Shop = () => {
         theme="light"
         transition={Bounce}
       />
-      <div className="container-fluid bg-secondary w-100 shopContainer">
-        <h1 className='text-white text-center p-3'>Products</h1>
+      <div className="container-fluid w-100 shopContainer position-relative">
+        <img className='bannerImg img-fluid' src={banner} alt={"banner-image"} style={{width:"100%" ,height:"250px"}}/>
+        <h1 className='text-white text-center p-3 position-absolute'>Products</h1>
       </div>
       <div className="container pt-5">
         <div className="row">

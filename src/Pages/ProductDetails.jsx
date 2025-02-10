@@ -11,6 +11,8 @@ import { useDispatch } from 'react-redux';
 import { add } from '../Redux/CartSlice';
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 import { context } from '../Components/ContextProvider';
+import banner from "../Images/banner.jpg"
+
 const notify = () =>
     toast.success('Product has been added to cart!', {
         position: "top-right",
@@ -71,10 +73,11 @@ const ProductDetails = () => {
                 theme="light"
                 transition={Bounce}
             />
-            <div className="container-fluid pdContainer bg-secondary w-100">
-                <h1 className='text-white text-center p-3'>{product.productName}</h1>
+            <div className="container-fluid w-100 shopContainer position-relative">
+                <img className='bannerImg img-fluid' src={banner} alt={"banner-image"} style={{ width: "100%", height: "250px" }} />
+                <h1 className='text-white text-center p-3 position-absolute pTitle'>{product.productName}</h1>
             </div>
-            <div className="container">
+            <div className="container relatedProducts">
                 <div className="row d-flex align-items-center">
                     <div className="col-md-6 col-lg-6 col-xxl-6">
                         <img className="img-fluid" src={product.imgUrl} alt={product.productName} width={500} />

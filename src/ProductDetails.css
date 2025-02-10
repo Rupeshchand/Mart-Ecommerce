@@ -1,3 +1,6 @@
+body{
+    overflow-x: hidden;
+}
 .pdBtn{
     background-color: #003153;
     color: white;
@@ -12,7 +15,8 @@
     background-color: #003153;
     color: white;
 }
-.pdContainer{
-    padding-top: 70px;
-    padding-bottom: 50px;
+
+.pTitle{
+    top:30%;
+    left:35%
 }

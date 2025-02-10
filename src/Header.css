@@ -2,10 +2,10 @@
     overflow-x: hidden;
 } */
 .header {
-    position: sticky !important;
+    position: fixed !important;
     top: 0;
-    z-index: 100;
     width: 100%;
+    z-index: 1000;
 }
 
 .count {
